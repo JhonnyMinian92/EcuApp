@@ -1,0 +1,7 @@
+/* llamar todos los css */
+/* css smartphone */
+@import url("../../pack/css/media/frontphone.css");
+/* css computador */
+@import url("");
+/* css tv */
+@import url("");
