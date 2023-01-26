@@ -10,7 +10,7 @@ require "../contenedor.php";
     </head>
     <body>
         <!-- Crear con js los componentes-->
-        
+        <section id="cuerpogeneral"></section>
         <!-- fin de la creacion-->
     </body>
 </html>
