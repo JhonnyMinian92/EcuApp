@@ -1,7 +1,9 @@
 /* llamar todos los css */
 /* css smartphone */
 @import url("../../pack/css/media/frontphone.css");
+/* css tablet */
+@import url("../../pack/css/media/fronttablet.css");
 /* css computador */
-@import url("");
+@import url("../../pack/css/media/frontpc.css");
 /* css tv */
-@import url("");
+@import url("../../pack/css/media/fronttv.css");

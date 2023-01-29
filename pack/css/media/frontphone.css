@@ -1,27 +1,21 @@
  /* crear if de media query */
 @media only screen and (max-width: 279px) {
-    body{
-        background-color: cadetblue;
+    body::before{
+        content: "celu fold";
      }
 }
 @media only screen and (min-width: 280px) and (max-width: 320px) {
-    
+    body::before{
+        content: "celu chico";
+     }
 }
 @media only screen and (min-width: 321px) and (max-width: 415px) {
-    
+    body::before{
+        content: "celu viejo";
+     }
 }
 @media only screen and (min-width: 416px) and (max-width: 520px) {
-    
-}
-@media only screen and (min-width: 521px) and (max-width: 680px) {
-    
-}
-@media only screen and (min-width: 681px) and (max-width: 750px) {
-    
-}
-@media only screen and (min-width: 751px) and (max-width: 1200px) {
-    
-}
-@media only screen and (min-width: 1201px) {
-    
+    body::before{
+        content: "celu normal";
+     }
 }

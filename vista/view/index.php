@@ -1,3 +1,3 @@
 <?php
-require "../contenedor.php";
+require "../ventanas/contenedor.php";
 ?>

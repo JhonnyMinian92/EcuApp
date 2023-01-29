@@ -1,3 +1,3 @@
 <?php
-header("Location: ../EcuApp/vista/view/");
+header("Location: http://localhost/EcuApp/vista/view/");
 ?>

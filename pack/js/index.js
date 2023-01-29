@@ -2,7 +2,7 @@
 CrearCuerpoHTML();
 
 //listar media query
-document.write('<script src="../../pack/js/crud/frontphone.js"></script>');
+document.write('<script src="http://localhost/EcuApp/pack/js/crud/frontphone.js"></script>');
 
 //crear todos los componentes del body
 function CrearCuerpoHTML(){
