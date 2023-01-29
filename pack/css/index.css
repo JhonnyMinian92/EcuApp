@@ -1,4 +1,4 @@
-/* llamar todos los css */
+/* llamar todos los css con mediaquerys */
 /* css smartphone */
 @import url("../../pack/css/media/frontphone.css");
 /* css tablet */
@@ -7,3 +7,49 @@
 @import url("../../pack/css/media/frontpc.css");
 /* css tv */
 @import url("../../pack/css/media/fronttv.css");
+/* formatos generales */
+body { margin: 0px; }
+#idheader { 
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+#idnav {
+    position: relative;
+    width: auto;
+    height: 55px;
+    background-color: #5a7183;
+}
+#idlogo {
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 45px;
+    margin-top: 4px;
+    margin-left: 5px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("http://localhost/EcuApp/pack/re/logo.png");
+}
+#idsection {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+#idarticles {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+#idfooter {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-top: 1px solid rgb(200, 200, 200);
+}
+#idarticlef {
+    position: relative;
+    width: auto;
+    height: 200px;
+}

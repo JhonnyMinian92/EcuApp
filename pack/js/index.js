@@ -1,8 +1,9 @@
 //ejecutador con el body
 CrearCuerpoHTML();
 
-//listar media query
+//acciones media query telefono
 document.write('<script src="http://localhost/EcuApp/pack/js/crud/frontphone.js"></script>');
+//listar media query tablet
 
 //crear todos los componentes del body
 function CrearCuerpoHTML(){
@@ -17,6 +18,10 @@ function CrearCuerpoHTML(){
     var nav = document.createElement("nav");
     nav.setAttribute("id", "idnav");
     header.appendChild(nav);
+    //creacion de logo
+    var div = document.createElement("div");
+    div.setAttribute("id", "idlogo");
+    nav.appendChild(div);
 
     //creacion de semicuerpo
     var section = document.createElement("section");
@@ -24,7 +29,7 @@ function CrearCuerpoHTML(){
     cuerpo.appendChild(section);
     //creacion de article
     var article = document.createElement("article");
-    article.setAttribute("id", "idarticle");
+    article.setAttribute("id", "idarticles");
     section.appendChild(article);
 
     //creacion de pie de pagina
@@ -33,7 +38,7 @@ function CrearCuerpoHTML(){
     cuerpo.appendChild(footer);
     //creacion de article
     var article = document.createElement("article");
-    article.setAttribute("id", "idarticle");
+    article.setAttribute("id", "idarticlef");
     footer.appendChild(article);
 
 }
