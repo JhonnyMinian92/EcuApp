@@ -13,7 +13,7 @@ body { margin: 0px; }
     position: relative;
     width: 100%;
     height: auto;
-    border-bottom: 1px solid rgb(224, 224, 224);
+    border-bottom: 2px solid #415b6e;
 }
 #idnav {
     position: relative;
@@ -31,6 +31,13 @@ body { margin: 0px; }
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url("http://localhost/EcuApp/pack/re/logo.png");
+}
+#idlbnom {
+    display: inline-block;
+    width: 120px;
+    height: 45px;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 #idsection {
     position: relative;

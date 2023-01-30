@@ -22,6 +22,10 @@ function CrearCuerpoHTML(){
     var div = document.createElement("div");
     div.setAttribute("id", "idlogo");
     nav.appendChild(div);
+    //creacion de nombre web
+    var div = document.createElement("div");
+    div.setAttribute("id", "idlbnom");
+    nav.appendChild(div);
 
     //creacion de semicuerpo
     var section = document.createElement("section");
