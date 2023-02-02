@@ -26,6 +26,7 @@ body {
     width: auto;
     height: 55px;
     background-color: #5a7183;
+    border-bottom: 1px solid #405666;
 }
 #idlogo {
     position: relative;
@@ -68,13 +69,14 @@ body {
 #idarticles {
     position: relative;
     width: auto;
-    height: auto;
+    height: 440px;
 }
 #idfooter {
     position: relative;
     width: 100%;
     height: auto;
-    border-top: 1px solid rgb(200, 200, 200);
+    border-top: 1px solid #281300;
+    background-color: #1e0e00;
 }
 #idarticlef {
     position: relative;
