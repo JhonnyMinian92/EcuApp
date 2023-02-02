@@ -8,7 +8,13 @@
 /* css tv */
 @import url("../../pack/css/media/fronttv.css");
 /* formatos generales */
-body { margin: 0px; }
+body { 
+    margin: 0px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 #idheader { 
     position: relative;
     width: 100%;
@@ -34,11 +40,26 @@ body { margin: 0px; }
 }
 #idlbnom {
     display: inline-block;
-    width: 120px;
-    height: 45px;
-    margin-top: 5px;
     margin-left: 5px;
+    width: 110px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
 }
+#idlbnom::before { content: "EcuApp"; }
+
+#idlbnom:hover { cursor: pointer; }
+
+#cjmenu {
+    display: inline-block;
+    height: 45px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
 #idsection {
     position: relative;
     width: 100%;

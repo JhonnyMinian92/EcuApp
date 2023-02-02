@@ -26,6 +26,14 @@ function CrearCuerpoHTML(){
     var div = document.createElement("div");
     div.setAttribute("id", "idlbnom");
     nav.appendChild(div);
+    //creacion de menu varia por screen
+    var div = document.createElement("div");
+    div.setAttribute("id", "cjmenu");
+    nav.appendChild(div);
+    //creacion de nav
+    var minimenu = document.createElement("nav");
+    minimenu.setAttribute("id", "idminimenu");
+    header.appendChild(minimenu);
 
     //creacion de semicuerpo
     var section = document.createElement("section");

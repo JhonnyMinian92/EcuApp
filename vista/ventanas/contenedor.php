@@ -10,7 +10,7 @@ $urlcss = "http://localhost/EcuApp/pack/css/";
 
     <head>
         <meta charset="UTF-8">
-        <link rel="shortcut icon" href="http://localhost/EcuApp/pack/re/favicon.png">
+        <link rel="shortcut icon" href="http://localhost/EcuApp/pack/re/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">      
         <title>EcuApp</title>
         <meta name="description" content="aplicacion web para la interconectividad de los servicios del gobierno ecuatoriano y los requerimientos ciudadanos para los mismos"/>
