@@ -1,3 +1,3 @@
 <?php
-header("Location: http://localhost/EcuApp/vista/view/");
+require "vista/contenedor.php";
 ?>
