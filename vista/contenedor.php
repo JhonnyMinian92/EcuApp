@@ -29,8 +29,8 @@ $urlcss = "".$dominio."pack/css/";
     </body>
 
     <!-- Llamar todos los css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>index.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>repositorio.css" media="screen" />
     <!-- Llamar todos los js -->
-    <script src="<?php echo $urljs ?>index.js"></script>
+    <script src="<?php echo $urljs ?>repositorio.js"></script>
 
 </html>
