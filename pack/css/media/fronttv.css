@@ -1,9 +1,15 @@
 @media only screen and (min-width: 1921px) {
     #cjmenu { width: 600px; }
-    #cjmenu > div:nth-child(1) { width: 185px; }
-    #cjmenu > div:nth-child(2) { width: 185px; }
-    #cjmenu > div:nth-child(3) { width: 185px; }
-    #cjmenu > div:nth-child(4) { width: 45px; }
+    #cjmenu > div:nth-child(1) { width: 185px; font-size: 20px; }
+    #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid #6f9aba; }
+    #cjmenu > div:nth-child(1)::before { content: "Servicios"; }
+    #cjmenu > div:nth-child(2) { width: 185px; font-size: 20px; }
+    #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid #6f9aba; }
+    #cjmenu > div:nth-child(2)::before { content: "Informacion"; }
+    #cjmenu > div:nth-child(3) { width: 185px; font-size: 20px; }
+    #cjmenu > div:nth-child(3):hover { border-bottom: 3px solid #6f9aba; }
+    #cjmenu > div:nth-child(3)::before { content: "Contactenos"; }
+    #cjmenu > div:nth-child(4) { width: 45px; height: 45px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 34px; }
 }

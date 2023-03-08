@@ -37,6 +37,7 @@ function CrearCuerpoHTML(){
     //creacion de nombre web
     var div = document.createElement("div");
     div.setAttribute("id", "idlbnom");
+    div.setAttribute("onclick", "refresh();");
     nav.appendChild(div);
     //creacion de menu varia por screen
     var div = document.createElement("div");
@@ -59,6 +60,7 @@ function CrearCuerpoHTML(){
     //boton 4
     var div = document.createElement("div");
     div.setAttribute("id", "btnmenu4");
+    div.setAttribute("class", "btnlogin");
     cjmenu.appendChild(div);
     //boton 5
     var div = document.createElement("div");
@@ -83,4 +85,8 @@ function CrearCuerpoHTML(){
     article.setAttribute("id", "idarticlef");
     footer.appendChild(article);
 
+}
+
+function refresh(){
+    window.location.reload();
 }

@@ -25,8 +25,8 @@ body {
     position: relative;
     width: auto;
     height: 55px;
-    background-color: #5a7183;
-    border-bottom: 1px solid #405666;
+    background-color: #242e36;
+    border-bottom: 1px solid #1c272f;
 }
 #idlogo {
     position: relative;
@@ -37,7 +37,7 @@ body {
     margin-left: 5px;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url("http://localhost/EcuApp/pack/re/logo.png");
+    background-image: url("http://localhost/EcuApp/pack/re/logo2.png");
 }
 #idlbnom {
     display: inline-block;
@@ -64,15 +64,23 @@ body {
 
 #cjmenu > div {
     display: inline-block;
-    height: 45px;
     position: relative;
     color: #fff;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #cjmenu > div:hover {
-    background-color: #2d3c47;
     cursor: pointer;
 }
+
+.btnlogin {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("http://localhost/EcuApp/pack/re/user.png");
+    opacity: 0.6;
+}
+.btnlogin:hover {  opacity: 1; }
 
 #idsection {
     position: relative;
