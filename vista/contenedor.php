@@ -1,9 +1,15 @@
 <?php
+
+$titulo = "EcuApp";
+
 $dominio = "http://localhost/EcuApp/";
 //url de la carpeta js
 $urljs = "".$dominio."pack/js/";
 //url de la carpeta css
 $urlcss = "".$dominio."pack/css/";
+//url de la carpeta re
+$urlre = "".$dominio."pack/re/";
+
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +17,9 @@ $urlcss = "".$dominio."pack/css/";
 
     <head>
         <meta charset="UTF-8">
-        <link rel="shortcut icon" href="<?php echo $dominio ?>pack/re/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo $urlre ?>favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">      
-        <title>EcuApp</title>
+        <title><?php echo $titulo; ?></title>
         <meta name="description" content="aplicacion web para la interconectividad de los servicios del gobierno ecuatoriano y los requerimientos ciudadanos para los mismos"/>
         <meta name="keywords" content="ecuador,ecuatoriano,ciudadano,aplicacion,appecuador,webecuador,sitiociudadano,sri,registro civil,tramite"/>
         <meta name="author" content="Jhonny Miñan" />

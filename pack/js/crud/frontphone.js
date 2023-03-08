@@ -1,1 +1,1 @@
-//crear todos los div para view smartphone
+//crear todos los div y animaciones para view smartphone

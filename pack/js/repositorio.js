@@ -1,8 +1,16 @@
+var url = "http://localhost/EcuApp/pack/js/crud/";
+
 //ejecutador con el body
 CrearCuerpoHTML();
 
 //acciones media query telefono
-document.write('<script src="http://localhost/EcuApp/pack/js/crud/frontphone.js"></script>');
+document.write('<script src="'+url+'frontphone.js"></script>');
+//acciones media query tablet
+document.write('<script src="'+url+'fronttablet.js"></script>');
+//acciones media query computador
+document.write('<script src="'+url+'frontcompu.js"></script>');
+//acciones media query televisor
+document.write('<script src="'+url+'fronttv.js"></script>');
 //listar media query tablet
 
 //crear todos los componentes del body
