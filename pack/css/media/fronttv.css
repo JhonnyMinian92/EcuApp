@@ -1,4 +1,9 @@
 @media only screen and (min-width: 1921px) {
     #cjmenu { width: 600px; }
+    #cjmenu > div:nth-child(1) { width: 185px; }
+    #cjmenu > div:nth-child(2) { width: 185px; }
+    #cjmenu > div:nth-child(3) { width: 185px; }
+    #cjmenu > div:nth-child(4) { width: 45px; }
+    #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 34px; }
 }

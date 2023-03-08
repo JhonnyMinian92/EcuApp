@@ -59,6 +59,19 @@ body {
     position: absolute;
     right: 10px;
     top: 5px;
+    z-index: 1;
+}
+
+#cjmenu > div {
+    display: inline-block;
+    height: 45px;
+    position: relative;
+    color: #fff;
+}
+
+#cjmenu > div:hover {
+    background-color: #2d3c47;
+    cursor: pointer;
 }
 
 #idsection {

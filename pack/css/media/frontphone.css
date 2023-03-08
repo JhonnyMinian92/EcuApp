@@ -1,17 +1,37 @@
  /* crear if de media query */
 @media only screen and (max-width: 279px) {
     #cjmenu { width: 45px; }
+    #cjmenu > div:nth-child(1) { display: none; }
+    #cjmenu > div:nth-child(2) { display: none; }
+    #cjmenu > div:nth-child(3) { display: none; }
+    #cjmenu > div:nth-child(4) { display: none; }
+    #cjmenu > div:nth-child(5) { width: 45px; }
     #idlbnom { font-size: 20px; }
 }
 @media only screen and (min-width: 280px) and (max-width: 320px) {
     #cjmenu { width: 45px; }
+    #cjmenu > div:nth-child(1) { display: none; }
+    #cjmenu > div:nth-child(2) { display: none; }
+    #cjmenu > div:nth-child(3) { display: none; }
+    #cjmenu > div:nth-child(4) { display: none; }
+    #cjmenu > div:nth-child(5) { width: 45px; }
     #idlbnom { font-size: 20px; }
 }
 @media only screen and (min-width: 321px) and (max-width: 415px) {
     #cjmenu { width: 45px; }
+    #cjmenu > div:nth-child(1) { display: none; }
+    #cjmenu > div:nth-child(2) { display: none; }
+    #cjmenu > div:nth-child(3) { display: none; }
+    #cjmenu > div:nth-child(4) { display: none; }
+    #cjmenu > div:nth-child(5) { width: 45px; }
     #idlbnom { font-size: 20px; }
 }
 @media only screen and (min-width: 416px) and (max-width: 520px) {
     #cjmenu { width: 45px; }
+    #cjmenu > div:nth-child(1) { display: none; }
+    #cjmenu > div:nth-child(2) { display: none; }
+    #cjmenu > div:nth-child(3) { display: none; }
+    #cjmenu > div:nth-child(4) { display: none; }
+    #cjmenu > div:nth-child(5) { width: 45px; }
     #idlbnom { font-size: 20px; }
 }

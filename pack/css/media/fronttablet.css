@@ -1,12 +1,27 @@
 @media only screen and (min-width: 521px) and (max-width: 680px) {
     #cjmenu { width: 200px; }
+    #cjmenu > div:nth-child(1) { width: 78px; }
+    #cjmenu > div:nth-child(2) { width: 77px; }
+    #cjmenu > div:nth-child(3) { display: none; }
+    #cjmenu > div:nth-child(4) { width: 45px; }
+    #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 24px; }
 }
 @media only screen and (min-width: 681px) and (max-width: 750px) {
     #cjmenu { width: 300px; }
+    #cjmenu > div:nth-child(1) { width: 85px; }
+    #cjmenu > div:nth-child(2) { width: 85px; }
+    #cjmenu > div:nth-child(3) { width: 85px; }
+    #cjmenu > div:nth-child(4) { width: 45px; }
+    #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
 }
 @media only screen and (min-width: 751px) and (max-width: 1200px) {
     #cjmenu { width: 400px; }
+    #cjmenu > div:nth-child(1) { width: 119px; }
+    #cjmenu > div:nth-child(2) { width: 118px; }
+    #cjmenu > div:nth-child(3) { width: 118px; }
+    #cjmenu > div:nth-child(4) { width: 45px; }
+    #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
 }

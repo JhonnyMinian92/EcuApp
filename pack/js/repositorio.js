@@ -26,6 +26,10 @@ function CrearCuerpoHTML(){
     var nav = document.createElement("nav");
     nav.setAttribute("id", "idnav");
     header.appendChild(nav);
+    //creacion de nav
+    var minimenu = document.createElement("nav");
+    minimenu.setAttribute("id", "idminimenu");
+    header.appendChild(minimenu);
     //creacion de logo
     var div = document.createElement("div");
     div.setAttribute("id", "idlogo");
@@ -38,10 +42,28 @@ function CrearCuerpoHTML(){
     var div = document.createElement("div");
     div.setAttribute("id", "cjmenu");
     nav.appendChild(div);
-    //creacion de nav
-    var minimenu = document.createElement("nav");
-    minimenu.setAttribute("id", "idminimenu");
-    header.appendChild(minimenu);
+    //creacion de botonera de menu
+    //boton 1
+    var cjmenu = document.getElementById("cjmenu");
+    var div = document.createElement("div");
+    div.setAttribute("id", "btnmenu1");
+    cjmenu.appendChild(div);
+    //boton 2
+    var div = document.createElement("div");
+    div.setAttribute("id", "btnmenu2");
+    cjmenu.appendChild(div);
+    //boton 3
+    var div = document.createElement("div");
+    div.setAttribute("id", "btnmenu3");
+    cjmenu.appendChild(div);
+    //boton 4
+    var div = document.createElement("div");
+    div.setAttribute("id", "btnmenu4");
+    cjmenu.appendChild(div);
+    //boton 5
+    var div = document.createElement("div");
+    div.setAttribute("id", "btnmenu5");
+    cjmenu.appendChild(div);
 
     //creacion de semicuerpo
     var section = document.createElement("section");
