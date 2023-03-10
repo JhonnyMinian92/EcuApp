@@ -1,3 +1,3 @@
 <?php
-require "vista/contenedor.php";
+include("vista/contenedor.php");
 ?>

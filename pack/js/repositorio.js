@@ -1,4 +1,4 @@
-var url = "http://localhost/EcuApp/pack/js/crud/";
+var url = "../EcuApp/pack/js/crud/";
 
 //ejecutador con el body
 CrearCuerpoHTML();
@@ -65,6 +65,7 @@ function CrearCuerpoHTML(){
     //boton 5
     var div = document.createElement("div");
     div.setAttribute("id", "btnmenu5");
+    div.setAttribute("class", "btnmenu");
     cjmenu.appendChild(div);
 
     //creacion de semicuerpo
