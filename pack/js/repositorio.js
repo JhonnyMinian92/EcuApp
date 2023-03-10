@@ -1,4 +1,4 @@
-var url = "../EcuApp/pack/js/crud/";
+var url = "pack/js/crud/";
 
 //ejecutador con el body
 CrearCuerpoHTML();

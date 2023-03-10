@@ -1,12 +1,12 @@
 /* llamar todos los css con mediaquerys */
 /* css smartphone */
-@import url("../../pack/css/media/frontphone.css");
+@import url("media/frontphone.css");
 /* css tablet */
-@import url("../../pack/css/media/fronttablet.css");
+@import url("media/fronttablet.css");
 /* css computador */
-@import url("../../pack/css/media/frontpc.css");
+@import url("media/frontpc.css");
 /* css tv */
-@import url("../../pack/css/media/fronttv.css");
+@import url("media/fronttv.css");
 /* formatos generales */
 body { 
     margin: 0px;
@@ -24,15 +24,16 @@ body {
 #idnav {
     position: relative;
     width: auto;
-    height: 55px;
+    height: 75px;
     background-color: #242e36;
     border-bottom: 1px solid #1c272f;
 }
 #idlogo {
     position: relative;
     display: inline-block;
-    width: 65px;
-    height: 45px;
+    width: 75px;
+    height: 65px;
+    top: 5px;
     margin-top: 4px;
     margin-left: 5px;
     background-size: 100%;
@@ -47,7 +48,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     position: relative;
-    top: -10px;
+    top: -20px;
 }
 #idlbnom::before { content: "EcuApp"; }
 
@@ -55,10 +56,10 @@ body {
 
 #cjmenu {
     display: inline-block;
-    height: 45px;
+    height: 50px;
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 25px;
     z-index: 1;
 }
 
@@ -98,7 +99,6 @@ body {
 #idarticles {
     position: relative;
     width: auto;
-    height: 44.0px;
 }
 #idfooter {
     position: relative;
