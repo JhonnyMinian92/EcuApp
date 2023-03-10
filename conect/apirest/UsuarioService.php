@@ -11,7 +11,7 @@ else {
     $username = $_SERVER['PHP_AUTH_USER'];
     $password = $_SERVER['PHP_AUTH_PW'];
 
-    if ($username !== 'usuario' || $password !== 'contrasena') {
+    if ($username !== '3Cu4ppServ1c3' || $password !== 'R3st3cu4pp') {
         header('WWW-Authenticate: Basic realm="EcuApp"');
         header('HTTP/1.0 401 Unauthorized');
         echo 'Autenticación incorrecta';
@@ -20,23 +20,30 @@ else {
     else {
             // Recibir la solicitud POST con el array, el texto y el número
             $data = json_decode(file_get_contents('php://input'), true);
-            $opcion = $data['numero'];
-            //caso con las opciones a ejecutar
-            switch ($opcion) {
-                case 1:
-                    echo "opcion 1";
-                    break;
-                case 2:
-                    echo "opcion 3";
-                    break;
-                case 3:
-                    echo "opcion 4";
-                    break;
-                default:
-                    echo "Opcion no existe";
-                    break;
+            if (isset($data['numero'])) {
+                $opcion = $data['numero'];
+                //caso con las opciones a ejecutar
+                switch ($opcion) {
+                    case 1:
+                        echo "opcion 1";
+                        break;
+                    case 2:
+                        echo "opcion 3";
+                        break;
+                    case 3:
+                        echo "opcion 4";
+                        break;
+                    default:
+                        echo "Opcion no existe";
+                        break;
+                }
             }
-
+            else {
+                header('WWW-Authenticate: Basic realm="EcuApp"');
+                header('HTTP/1.0 401 Unauthorized');
+                echo 'Acceso incorrecta';
+                exit;
+            }
     }
 
 }

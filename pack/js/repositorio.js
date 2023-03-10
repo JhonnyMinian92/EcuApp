@@ -3,6 +3,9 @@ var url = "../EcuApp/pack/js/crud/";
 //ejecutador con el body
 CrearCuerpoHTML();
 
+//verificacion de login
+
+
 //acciones media query telefono
 document.write('<script src="'+url+'frontphone.js"></script>');
 //acciones media query tablet
@@ -48,14 +51,17 @@ function CrearCuerpoHTML(){
     var cjmenu = document.getElementById("cjmenu");
     var div = document.createElement("div");
     div.setAttribute("id", "btnmenu1");
+    div.setAttribute("onclick", "btnservicio();");
     cjmenu.appendChild(div);
     //boton 2
     var div = document.createElement("div");
     div.setAttribute("id", "btnmenu2");
+    div.setAttribute("onclick", "btninformacion();");
     cjmenu.appendChild(div);
     //boton 3
     var div = document.createElement("div");
     div.setAttribute("id", "btnmenu3");
+    div.setAttribute("onclick", "btncontactenos();");
     cjmenu.appendChild(div);
     //boton 4
     var div = document.createElement("div");
@@ -90,4 +96,22 @@ function CrearCuerpoHTML(){
 
 function refresh(){
     window.location.reload();
+}
+
+function btnservicio(){
+    document.getElementById("btnmenu1").style.borderBottom = "3px solid #6f9aba";
+    document.getElementById("btnmenu2").style.borderBottom = "none";
+    document.getElementById("btnmenu3").style.borderBottom = "none";
+}
+
+function btninformacion(){
+    document.getElementById("btnmenu1").style.borderBottom = "none";
+    document.getElementById("btnmenu2").style.borderBottom = "3px solid #6f9aba";
+    document.getElementById("btnmenu3").style.borderBottom = "none";
+}
+
+function btncontactenos(){
+    document.getElementById("btnmenu1").style.borderBottom = "none";
+    document.getElementById("btnmenu2").style.borderBottom = "none";
+    document.getElementById("btnmenu3").style.borderBottom = "3px solid #6f9aba";
 }
