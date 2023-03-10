@@ -20,21 +20,23 @@ else {
     else {
             // Recibir la solicitud POST con el array, el texto y el número
             $data = json_decode(file_get_contents('php://input'), true);
-            if (isset($data['numero'])) {
-                $opcion = $data['numero'];
+            if (isset($data['opcion'])) {
                 //caso con las opciones a ejecutar
-                switch ($opcion) {
+                switch ($data['opcion']) {
                     case 1:
-                        echo "opcion 1";
+                        if(LogueoUsuario($data['correo'],$data['clave'])){ echo "Logueo de Usuario"; }
                         break;
                     case 2:
-                        echo "opcion 3";
+                        echo "Ingresar Usuario";
                         break;
                     case 3:
-                        echo "opcion 4";
+                        echo "Modificar Clave";
+                        break;
+                    case 4:
+                        echo "Modificar Rol";
                         break;
                     default:
-                        echo "Opcion no existe";
+                        echo "";
                         break;
                 }
             }
@@ -47,4 +49,17 @@ else {
     }
 
 }
+
+//funcion Logueo de Usuario
+function LogueoUsuario($correo, $clave){
+    return true;
+}
+
+//funcion Ingresar Usuario
+
+//funcion  Modificar Clave
+
+//funcion Modificar Rol
+
+
 ?>

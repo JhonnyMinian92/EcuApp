@@ -42,6 +42,10 @@ class MICRUD {
 
     }
 
+    public function encontrar($sql){
+
+    }
+
     //funcion de LISTAR
     public function listar($sql){
 
