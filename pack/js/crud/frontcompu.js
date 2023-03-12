@@ -1,18 +1,42 @@
 //funciones y animaciones
 function btnservicio(){
-    document.getElementById("btnmenu1").style.borderBottom = "3px solid #6f9aba";
-    document.getElementById("btnmenu2").style.borderBottom = "none";
-    document.getElementById("btnmenu3").style.borderBottom = "none";
+    var contenedor = document.getElementById("idarticles");
+    contenedor.innerHTML = "";
+    //contenido donde se ven los servicios
+    var div = document.createElement("div");
+    div.setAttribute("id", "flexservicio");
+    contenedor.appendChild(div);
 }
 
 function btninformacion(){
-    document.getElementById("btnmenu1").style.borderBottom = "none";
-    document.getElementById("btnmenu2").style.borderBottom = "3px solid #6f9aba";
-    document.getElementById("btnmenu3").style.borderBottom = "none";
+    var contenedor = document.getElementById("idarticles");
+    contenedor.innerHTML = "";
+    //contenido donde se ven los servicios
+    var div = document.createElement("div");
+    div.setAttribute("id", "flexinformacion");
+    contenedor.appendChild(div);
 }
 
 function btncontactenos(){
-    document.getElementById("btnmenu1").style.borderBottom = "none";
-    document.getElementById("btnmenu2").style.borderBottom = "none";
-    document.getElementById("btnmenu3").style.borderBottom = "3px solid #6f9aba";
+    var contenedor = document.getElementById("idarticles");
+    contenedor.innerHTML = "";
+    //contenido donde se ven los servicios
+    var div = document.createElement("div");
+    div.setAttribute("id", "flexcontacto");
+    contenedor.appendChild(div);
+}
+
+function btnlogin(){
+    //front para loguearse
+    var cuerpo = document.getElementById("cuerpogeneral");
+    cuerpo.innerHTML = "";
+}
+
+function btnveruser(){
+    var contenedor = document.getElementById("idarticles");
+    contenedor.innerHTML = "";
+    //contenido donde se ven los servicios
+    var div = document.createElement("div");
+    div.setAttribute("id", "flexcontacto");
+    contenedor.appendChild(div);
 }

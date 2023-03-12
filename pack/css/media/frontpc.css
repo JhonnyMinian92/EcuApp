@@ -2,14 +2,17 @@
     #cjmenu { width: 500px; }
     #cjmenu > div:nth-child(1) { width: 152px; font-size: 18px; }
     #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid #6f9aba; }
+    #cjmenu > div:nth-child(1):active { border-bottom: 3px solid #36546c; }
     #cjmenu > div:nth-child(1)::before { content: "Servicios"; }
     #cjmenu > div:nth-child(2) { width: 152px; font-size: 18px; }
     #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid #6f9aba; }
+    #cjmenu > div:nth-child(2):active { border-bottom: 3px solid #36546c; }
     #cjmenu > div:nth-child(2)::before { content: "Informacion"; }
     #cjmenu > div:nth-child(3) { width: 151px; font-size: 18px; }  
     #cjmenu > div:nth-child(3):hover { border-bottom: 3px solid #6f9aba; }
+    #cjmenu > div:nth-child(3):active { border-bottom: 3px solid #36546c; }
     #cjmenu > div:nth-child(3)::before { content: "Contactenos"; }
-    #cjmenu > div:nth-child(4) { width: 45px; height: 45px; }
+    #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
 }
