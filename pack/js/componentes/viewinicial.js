@@ -1,6 +1,4 @@
 if (sessionStorage.getItem('Statuslogueo') === 'true') {
-    //cargar la pagina inicial
-    CrearCuerpoHTML();
     //definir cambios de logueo
     CrearCuerpoLogin();
 } else {
