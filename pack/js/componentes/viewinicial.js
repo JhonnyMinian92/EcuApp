@@ -71,13 +71,19 @@ function CrearMetaHead() {
     document.head.appendChild(metaTag);
 }
 
+function CrearBody(){
+        //cuerpo general de la pagina
+        var body = document.createElement("body");
+        document.documentElement.appendChild(body);
+}
+
 //crear todos los componentes del body
 function CrearCuerpoHTML() {    
+    //crear el contenido del head
     CrearMetaHead();
-    //cuerpo general de la pagina
-    var body = document.createElement("body");
-    document.documentElement.appendChild(body);
-
+    //crear el body para su contenido
+    CrearBody();
+    //crear el section contenedor
     var section = document.createElement('section');
     section.setAttribute('id', 'cuerpogeneral');
     document.body.appendChild(section);
