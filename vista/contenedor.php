@@ -11,16 +11,9 @@ $urlcss = "".$dominio."pack/css/";
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo $titulo; ?></title>
-        <link rel="shortcut icon" href="favicon.ico">
+        <!-- Llamar todos los css -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>repositorio.css" media="screen" />
+        <!-- Llamar todos los js -->
+        <script src="<?php echo $urljs ?>repositorio.js"></script>
     </head>
-    <body>
-        <!-- Crear con js los componentes-->
-        <section id="cuerpogeneral"></section>
-        <!-- fin de la creacion-->
-    </body>
-    <!-- Llamar todos los css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>repositorio.css" media="screen" />
-    <!-- Llamar todos los js -->
-    <script src="<?php echo $urljs ?>repositorio.js"></script>
 </html>
