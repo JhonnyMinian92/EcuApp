@@ -6,69 +6,67 @@ if (sessionStorage.getItem('Statuslogueo') === 'true') {
     CrearCuerpoHTML();
 }
 
-//refrescar pagina
-function refresh() {
-    window.location.reload();
-}
-
 function CrearMetaHead() {
+
+    var cabecera = document.head;
+
     //crear el titulo de la pagina
     var title = document.createElement('title');
     title.innerHTML = "EcuApp";
-    document.head.appendChild(title);
+    cabecera.appendChild(title);
 
     //crear icono de la pagina
     // Crear un nuevo elemento "link"
     var link = document.createElement("link");
     link.setAttribute("rel", "shortcut icon");
     link.setAttribute("href", "favicon.ico");
-    document.head.appendChild(link);
+    cabecera.appendChild(link);
 
     //crear los meta para charset
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('charset', 'UTF-8');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para nombre
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('name', 'EcuApp');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para escala
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('viewport', 'width=device-width, initial-scale=1.0');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para description
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('description', 'aplicacion web para la interconectividad de los servicios del gobierno ecuatoriano y los requerimientos ciudadanos para los mismos');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para palabras
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('keywords', 'ecuador,ecuatoriano,ciudadano,aplicacion,appecuador,webecuador,sitiociudadano,sri,registro civil,tramite,cedula,pasaporte,licencia');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para autor
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('author', 'Ing. Jhonny Miñan');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para copyright
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('copyright', '© 2023 - Jhonny Darwin Miñan Giron');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para robots
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('robots', 'index,nofollow');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 
     //crear los meta para autor
     var metaTag = document.createElement('meta');
     metaTag.setAttribute('http-equiv', 'cache-control');
     metaTag.setAttribute('content', 'no-cache');
-    document.head.appendChild(metaTag);
+    cabecera.appendChild(metaTag);
 }
 
 function CrearBody(){
@@ -88,7 +86,7 @@ function CrearCuerpoHTML() {
     section.setAttribute('id', 'cuerpogeneral');
     document.body.appendChild(section);
 
-    var cuerpo = document.getElementById("cuerpogeneral");
+    var cuerpo = Componente("cuerpogeneral");
     //creacion de cabecera
     var header = document.createElement("header");
     header.setAttribute("id", "idheader");
@@ -116,7 +114,7 @@ function CrearCuerpoHTML() {
     nav.appendChild(div);
     //creacion de botonera de menu
     //boton servicio
-    var cjmenu = document.getElementById("cjmenu");
+    var cjmenu = Componente("cjmenu");
     var div = document.createElement("div");
     div.setAttribute("id", "btnmenu1");
     div.setAttribute("onclick", "btnservicio();");
@@ -168,8 +166,8 @@ function CrearCuerpoHTML() {
 }
 
 function btnveruser() {
-    var contenedor = document.getElementById("idarticles");
-    contenedor.innerHTML = "";
+    var contenedor = Componente("idarticles");
+    Contenido("idarticles","");
     //contenido donde se ven los servicios
     var div = document.createElement("div");
     div.setAttribute("id", "flexVerDatos");
