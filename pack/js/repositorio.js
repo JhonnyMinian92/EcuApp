@@ -34,19 +34,24 @@ function Contenido(id, contenido){
     document.getElementById(id).innerHTML = contenido;
 }
 
+//agregar texto a un componente recien creado
+function ValorTexto(objeto, contenido){
+    objeto.innerHTML = contenido;
+}
+
 //codigo para crear objetos
 function CrearObjeto(tipo){
     return document.createElement(tipo);
 }
 
 //Agregar atributos al objeto creado
-function AddAtributo(nombre, tipo, atributo){
-    nombre.setAttribute(tipo,atributo); 
+function AddAtributo(objeto, tipo, atributo){
+    objeto.setAttribute(tipo,atributo); 
 }
 
 //Guardar el objeto creado dentro de la pagina
-function SaveObjeto(contenedor, nombre){
-    contenedor.appendChild(nombre);
+function SaveObjeto(contenedor, objeto){
+    contenedor.appendChild(objeto);
 }
 
 //eliminar un objeto seleccionado

@@ -4,6 +4,6 @@ function CrearCuerpoLogin(){
     CrearCuerpoHTML();
     //cambios para el login
     var botonlogin = Componente("btnmenu4");
-    botonlogin.setAttribute("onclick", "btnveruser();");
-    botonlogin.setAttribute("class", "btnuser");
+    AddAtributo(botonlogin,"onclick", "btnveruser();");
+    AddAtributo(botonlogin,"class", "btnuser");
 }

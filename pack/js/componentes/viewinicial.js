@@ -11,67 +11,67 @@ function CrearMetaHead() {
     var cabecera = document.head;
 
     //crear el titulo de la pagina
-    var title = document.createElement('title');
-    title.innerHTML = "EcuApp";
-    cabecera.appendChild(title);
+    var title = CrearObjeto('title');
+    ValorTexto(title,"EcuApp");
+    SaveObjeto(cabecera,title);
 
     //crear icono de la pagina
     // Crear un nuevo elemento "link"
-    var link = document.createElement("link");
-    link.setAttribute("rel", "shortcut icon");
-    link.setAttribute("href", "favicon.ico");
-    cabecera.appendChild(link);
+    var link = CrearObjeto("link");
+    AddAtributo(link,"rel","shortcut icon");
+    AddAtributo(link,"href","favicon.ico");
+    SaveObjeto(cabecera,link);
 
     //crear los meta para charset
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('charset', 'UTF-8');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'charset', 'UTF-8');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para nombre
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('name', 'EcuApp');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'name', 'EcuApp');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para escala
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('viewport', 'width=device-width, initial-scale=1.0');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'viewport', 'width=device-width, initial-scale=1.0');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para description
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('description', 'aplicacion web para la interconectividad de los servicios del gobierno ecuatoriano y los requerimientos ciudadanos para los mismos');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'description', 'aplicacion web para la interconectividad de los servicios del gobierno ecuatoriano y los requerimientos ciudadanos para los mismos');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para palabras
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('keywords', 'ecuador,ecuatoriano,ciudadano,aplicacion,appecuador,webecuador,sitiociudadano,sri,registro civil,tramite,cedula,pasaporte,licencia');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'keywords', 'ecuador,ecuatoriano,ciudadano,aplicacion,appecuador,webecuador,sitiociudadano,sri,registro civil,tramite,cedula,pasaporte,licencia');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para autor
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('author', 'Ing. Jhonny Miñan');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'author', 'Ing. Jhonny Miñan');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para copyright
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('copyright', '© 2023 - Jhonny Darwin Miñan Giron');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'copyright', '© 2023 - Jhonny Darwin Miñan Giron');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para robots
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('robots', 'index,nofollow');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'robots', 'index,nofollow');
+    SaveObjeto(cabecera,metaTag);
 
     //crear los meta para autor
-    var metaTag = document.createElement('meta');
-    metaTag.setAttribute('http-equiv', 'cache-control');
-    metaTag.setAttribute('content', 'no-cache');
-    cabecera.appendChild(metaTag);
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'http-equiv', 'cache-control');
+    AddAtributo(metaTag,'content', 'no-cache');
+    SaveObjeto(cabecera,metaTag);
 }
 
 function CrearBody(){
         //cuerpo general de la pagina
-        var body = document.createElement("body");
+        var body = CrearObjeto("body");
         document.documentElement.appendChild(body);
 }
 
@@ -81,87 +81,89 @@ function CrearCuerpoHTML() {
     CrearMetaHead();
     //crear el body para su contenido
     CrearBody();
+    //variable del cuerpo html
+    var bodyhtml = document.body;
     //crear el section contenedor
-    var section = document.createElement('section');
-    section.setAttribute('id', 'cuerpogeneral');
-    document.body.appendChild(section);
+    var section = CrearObjeto('section');
+    AddAtributo(section,'id', 'cuerpogeneral');
+    bodyhtml.appendChild(section);
 
     var cuerpo = Componente("cuerpogeneral");
     //creacion de cabecera
-    var header = document.createElement("header");
-    header.setAttribute("id", "idheader");
-    cuerpo.appendChild(header);
+    var header = CrearObjeto("header");
+    AddAtributo(header,"id", "idheader");
+    SaveObjeto(cuerpo,header);
     //creacion de nav
-    var nav = document.createElement("nav");
-    nav.setAttribute("id", "idnav");
-    header.appendChild(nav);
+    var nav = CrearObjeto("nav");
+    AddAtributo(nav,"id", "idnav");
+    SaveObjeto(header,nav);
     //creacion de nav
-    var minimenu = document.createElement("nav");
-    minimenu.setAttribute("id", "idminimenu");
-    header.appendChild(minimenu);
+    var minimenu = CrearObjeto("nav");
+    AddAtributo(minimenu,"id", "idminimenu");
+    SaveObjeto(header,minimenu);
     //creacion de logo
-    var div = document.createElement("div");
-    div.setAttribute("id", "idlogo");
-    nav.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "idlogo");
+    SaveObjeto(nav,div);
     //creacion de nombre web
-    var div = document.createElement("div");
-    div.setAttribute("id", "idlbnom");
-    div.setAttribute("onclick", "refresh();");
-    nav.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "idlbnom");
+    AddAtributo(div,"onclick", "refresh();");
+    SaveObjeto(nav,div);
     //creacion de menu varia por screen
-    var div = document.createElement("div");
-    div.setAttribute("id", "cjmenu");
-    nav.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "cjmenu");
+    SaveObjeto(nav,div);
     //creacion de botonera de menu
     //boton servicio
     var cjmenu = Componente("cjmenu");
-    var div = document.createElement("div");
-    div.setAttribute("id", "btnmenu1");
-    div.setAttribute("onclick", "btnservicio();");
-    cjmenu.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "btnmenu1");
+    AddAtributo(div,"onclick", "btnservicio();");
+    SaveObjeto(cjmenu,div);
     //boton informacion
-    var div = document.createElement("div");
-    div.setAttribute("id", "btnmenu2");
-    div.setAttribute("onclick", "btninformacion();");
-    cjmenu.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "btnmenu2");
+    AddAtributo(div,"onclick", "btninformacion();");
+    SaveObjeto(cjmenu,div);
     //boton contactenos
-    var div = document.createElement("div");
-    div.setAttribute("id", "btnmenu3");
-    div.setAttribute("onclick", "btncontactenos();");
-    cjmenu.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "btnmenu3");
+    AddAtributo(div,"onclick", "btncontactenos();");
+    SaveObjeto(cjmenu,div);
     //boton logueo
-    var div = document.createElement("div");
-    div.setAttribute("id", "btnmenu4");
-    div.setAttribute("onclick", "btnlogin();");
-    div.setAttribute("class", "btnlogin");
-    cjmenu.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "btnmenu4");
+    AddAtributo(div,"onclick", "btnlogin();");
+    AddAtributo(div,"class", "btnlogin");
+    SaveObjeto(cjmenu,div);
     //boton menu smartphone
-    var div = document.createElement("div");
-    div.setAttribute("id", "btnmenu5");
-    div.setAttribute("class", "btnmenu");
-    cjmenu.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "btnmenu5");
+    AddAtributo(div,"class", "btnmenu");
+    SaveObjeto(cjmenu,div);
 
     //creacion de semicuerpo
-    var section = document.createElement("section");
-    section.setAttribute("id", "idsection");
-    cuerpo.appendChild(section);
+    var section = CrearObjeto("section");
+    AddAtributo(section,"id", "idsection");
+    SaveObjeto(cuerpo,section);
     //creacion de article
-    var article = document.createElement("article");
-    article.setAttribute("id", "idarticles");
-    section.appendChild(article);
+    var article = CrearObjeto("article");
+    AddAtributo(article,"id", "idarticles");
+    SaveObjeto(section,article);
     //creacion de cuadros de noticias
-    var div = document.createElement("div");
-    div.setAttribute("id", "flexnoticias");
-    article.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "flexnoticias");
+    SaveObjeto(article,div);
 
     //creacion de pie de pagina
-    var footer = document.createElement("footer");
-    footer.setAttribute("id", "idfooter");
-    cuerpo.appendChild(footer);
+    var footer = CrearObjeto("footer");
+    AddAtributo(footer,"id", "idfooter");
+    SaveObjeto(cuerpo,footer);
     //creacion de article
-    var article = document.createElement("article");
-    article.setAttribute("id", "idarticlef");
-    footer.appendChild(article);
+    var article = CrearObjeto("article");
+    AddAtributo(article,"id", "idarticlef");
+    SaveObjeto(footer,article);
 
 }
 
@@ -169,7 +171,7 @@ function btnveruser() {
     var contenedor = Componente("idarticles");
     Contenido("idarticles","");
     //contenido donde se ven los servicios
-    var div = document.createElement("div");
-    div.setAttribute("id", "flexVerDatos");
-    contenedor.appendChild(div);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id", "flexVerDatos");
+    SaveObjeto(contenedor,div);
 }
