@@ -4,6 +4,7 @@ function btnlogin() {
    //crear conteniido
    var cuerpo = Componente("cuerpogeneral");
    var div = CrearObjeto("div");
+   AddAtributo(div,"Class","centrador");
    SaveObjeto(cuerpo,div);
    //crear cuadro de login
    var article = CrearObjeto("article");
@@ -18,26 +19,29 @@ function btnlogin() {
    SaveObjeto(div,logo);  
    //caja para correo
    var div = CrearObjeto("div");
+   AddAtributo(div,"Class","caja-input");
    SaveObjeto(article,div);
    var input = CrearObjeto("input");
    AddAtributo(input,"Class","text-correo");
    SaveObjeto(div,input);
    //caja para clave
    var div = CrearObjeto("div");
+   AddAtributo(div,"Class","caja-input");
    SaveObjeto(article,div);
    var input = CrearObjeto("input");
    AddAtributo(input,"Class","text-clave");
    SaveObjeto(div,input);
    //caja para olvido
    var div = CrearObjeto("div");
-   AddAtributo(div,"Class","cj-opciones");
    SaveObjeto(article,div);
    var hiper = CrearObjeto("div");
    AddAtributo(hiper,"Class","lb-olvido");
+   AddAtributo(hiper,"onclick","btnolvido");
    ValorTexto(hiper,"¿ Olvidó su contraseña ?");
    SaveObjeto(div,hiper);
    var registro = CrearObjeto("div");
    AddAtributo(registro,"Class","lb-singup");
+   AddAtributo(registro,"onclick","btnregister");
    ValorTexto(registro,"Crear Cuenta");
    SaveObjeto(div,registro);
    //caja boton de logueo
@@ -56,4 +60,8 @@ function btnregister(){
 
 function btnolvido(){
     
+}
+
+function IngresarLogin(){
+
 }

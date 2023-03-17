@@ -32,11 +32,6 @@ function CrearMetaHead() {
     AddAtributo(metaTag,'name', 'EcuApp');
     SaveObjeto(cabecera,metaTag);
 
-    //crear los meta para escala
-    var metaTag = CrearObjeto('meta');
-    AddAtributo(metaTag,'viewport', 'width=device-width, initial-scale=1.0');
-    SaveObjeto(cabecera,metaTag);
-
     //crear los meta para description
     var metaTag = CrearObjeto('meta');
     AddAtributo(metaTag,'description', 'aplicacion web para la interconectividad de los servicios del gobierno ecuatoriano y los requerimientos ciudadanos para los mismos');
@@ -76,9 +71,9 @@ function CrearBody(){
 }
 
 //crear todos los componentes del body
-function CrearCuerpoHTML() {    
+function CrearCuerpoHTML() {
     //crear el contenido del head
-    CrearMetaHead();
+    CrearMetaHead();    
     //crear el body para su contenido
     CrearBody();
     //variable del cuerpo html
@@ -164,7 +159,6 @@ function CrearCuerpoHTML() {
     var article = CrearObjeto("article");
     AddAtributo(article,"id", "idarticlef");
     SaveObjeto(footer,article);
-
 }
 
 function ViewNoticias(){
@@ -178,7 +172,7 @@ function ViewFooter(){
 function btnveruser() {
     var contenedor = Componente("idarticles");
     Contenido("idarticles","");
-    //contenido donde se ven los servicios
+    //contenido donde se ven los datos del cliente logueado
     var div = CrearObjeto("div");
     AddAtributo(div,"id", "flexVerDatos");
     SaveObjeto(contenedor,div);

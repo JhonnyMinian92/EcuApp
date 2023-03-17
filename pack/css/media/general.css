@@ -118,3 +118,101 @@ body {
 }
 
 .btnuser:hover { opacity: 1; }
+
+.centrador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cjlogueo { 
+    display: inline-block;
+    width: 400px;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #ababaa;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 2px 3px #afafaf;
+}
+
+.cjlogueo > div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    margin-bottom: 25px;
+}
+
+.img-logueo {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #afafaf;
+    display: inline-block;
+}
+
+.caja-input { 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 1px solid #d6d6d6;
+}
+
+.caja-input > input {
+    height: 30px;
+    border: none;
+    text-indent: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    outline: none;
+    color: #424242;
+    width: 364px;
+}
+
+.cjlogueo > div:nth-child(4) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lb-singup {
+    margin-left: 10px;
+    
+}
+
+.lb-singup:hover {
+    cursor: pointer;
+}
+
+.lb-olvido {
+    margin-right: 10px;
+}
+
+.lb-olvido:hover {
+    cursor: pointer;
+}
+
+.cjlogueo > div:nth-child(5){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn-loguear {
+    margin-top: 10px;
+    width: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+}
+
+.btn-loguear:hover {
+    cursor: pointer;
+}
