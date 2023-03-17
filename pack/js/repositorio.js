@@ -1,7 +1,7 @@
 var url = "pack/js/componentes/";
 
 //ventana con cambios de logueado
-document.write('<script src="'+url+'viewlogin.js"></script>');
+document.write('<script src="'+url+'viewlogueado.js"></script>');
 //ventana registro de usuarios
 document.write('<script src="'+url+'viewregistro.js"></script>');
 //ventana de link de servicio

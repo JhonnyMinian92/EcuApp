@@ -167,6 +167,14 @@ function CrearCuerpoHTML() {
 
 }
 
+function ViewNoticias(){
+
+}
+
+function ViewFooter(){
+    
+}
+
 function btnveruser() {
     var contenedor = Componente("idarticles");
     Contenido("idarticles","");
