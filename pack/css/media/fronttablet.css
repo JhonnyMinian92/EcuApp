@@ -3,11 +3,11 @@
     #cjmenu > div:nth-child(1) { width: 78px; font-size: 13px; }
     #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(1):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(1)::before { content: "Servicios"; }
+    #cjmenu > div:nth-child(1)::before { content: var(--texto-btn1); }
     #cjmenu > div:nth-child(2) { width: 77px; font-size: 12.5px; }
     #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(2):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(2)::before { content: "Contactenos"; }
+    #cjmenu > div:nth-child(2)::before { content: var(--texto-btn3); }
     #cjmenu > div:nth-child(3) { display: none; }
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
@@ -18,15 +18,15 @@
     #cjmenu > div:nth-child(1) { width: 85px; font-size: 13px; }
     #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(1):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(1)::before { content: "Servicios"; }
+    #cjmenu > div:nth-child(1)::before { content: var(--texto-btn1); }
     #cjmenu > div:nth-child(2) { width: 85px; font-size: 13px; }
     #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(2):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(2)::before { content: "Informacion"; }
+    #cjmenu > div:nth-child(2)::before { content: var(--texto-btn2); }
     #cjmenu > div:nth-child(3) { width: 85px; font-size: 13px; }
     #cjmenu > div:nth-child(3):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(3):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(3)::before { content: "Contactenos"; }
+    #cjmenu > div:nth-child(3)::before { content: var(--texto-btn3); }
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
@@ -36,15 +36,15 @@
     #cjmenu > div:nth-child(1) { width: 119px; font-size: 15px; }
     #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(1):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(1)::before { content: "Servicios"; }
+    #cjmenu > div:nth-child(1)::before { content: var(--texto-btn1); }
     #cjmenu > div:nth-child(2) { width: 118px; font-size: 15px; }
     #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(2):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(2)::before { content: "Informacion"; }
+    #cjmenu > div:nth-child(2)::before { content: var(--texto-btn2); }
     #cjmenu > div:nth-child(3) { width: 118px; font-size: 15px; }
     #cjmenu > div:nth-child(3):hover { border-bottom: 3px solid #6f9aba; }
     #cjmenu > div:nth-child(3):active { border-bottom: 3px solid #36546c; }
-    #cjmenu > div:nth-child(3)::before { content: "Contactenos"; }
+    #cjmenu > div:nth-child(3)::before { content: var(--texto-btn3); }
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }

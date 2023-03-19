@@ -42,7 +42,7 @@ body {
     position: relative;
     top: -20px;
 }
-#idlbnom::before { content: "EcuApp"; }
+#idlbnom::before { content: var(--texto-titulo); }
 
 #idlbnom:hover { cursor: pointer; }
 
@@ -158,17 +158,18 @@ body {
     margin-left: 15px;
     margin-right: 15px;
     border: 1px solid #d6d6d6;
+    display: flex;
 }
 
 .caja-input > input {
     height: 30px;
+    width: 330px;
     border: none;
     text-indent: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     outline: none;
     color: #424242;
-    width: 364px;
 }
 
 .cjlogueo > div:nth-child(4) {
@@ -188,8 +189,16 @@ body {
     cursor: pointer;
 }
 
+.lb-singup::after {
+    content: var(--texto-crea-cuenta);
+}
+
 .lb-olvido {
     margin-right: 10px;
+}
+
+.lb-olvido::after {
+    content: var(--texto-olvido);
 }
 
 .lb-olvido:hover {
@@ -213,6 +222,21 @@ body {
     text-align: center;
 }
 
+.btn-loguear::after {
+    content: var(--texto-btnlogin);
+}
+
 .btn-loguear:hover {
     cursor: pointer;
+}
+
+.img-mail {
+    height: 33px;
+    width: 33px;
+    
+}
+
+.img-pass {
+    height: 33px;
+    width: 33px;
 }

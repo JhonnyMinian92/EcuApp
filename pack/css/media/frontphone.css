@@ -1,12 +1,24 @@
  /* crear if de media query */
-@media only screen and (max-width: 279px) {
-    #cjmenu { width: 45px; }
-    #cjmenu > div:nth-child(1) { display: none; }
-    #cjmenu > div:nth-child(2) { display: none; }
-    #cjmenu > div:nth-child(3) { display: none; }
-    #cjmenu > div:nth-child(4) { display: none; }
-    #cjmenu > div:nth-child(5) { width: 45px; height: 45px; }
-    #idlbnom { font-size: 20px; }
+@media only screen and (min-width: 0px) and (max-width: 279px) {
+    #idheader { display: none; }
+    #idsection { display: none; }
+    #idfooter { display: none; }
+    #cuerpogeneral::after { 
+        content: var(--texto-resol-error);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #cuerpogeneral {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #333;
+        border: 1px solid #777;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 2px 1px #e4e4e4;
+    }
 }
 @media only screen and (min-width: 280px) and (max-width: 320px) {
     #cjmenu { width: 45px; }
