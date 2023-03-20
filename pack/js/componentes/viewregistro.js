@@ -18,6 +18,7 @@ function btnlogin() {
    SaveObjeto(article,div);
    var logo = CrearObjeto("div");
    AddAtributo(logo,"Class","img-logueo");
+   AddAtributo(logo,"onclick","refresh();");
    SaveObjeto(div,logo);  
    //caja para correo
    var div = CrearObjeto("div");
@@ -30,7 +31,8 @@ function btnlogin() {
    //input para el correo
    var input = CrearObjeto("input");
    AddAtributo(input,"Class","text-correo");
-   AddAtributo(input,"placeholder","Ingrese un correo electronico");
+   AddAtributo(input,"type","email");
+   AddAtributo(input,"placeholder","Ingrese su correo electronico");
    SaveObjeto(div,input);
    //caja para clave
    var div = CrearObjeto("div");
@@ -43,6 +45,7 @@ function btnlogin() {
    //input para la clave
    var input = CrearObjeto("input");
    AddAtributo(input,"Class","text-clave");
+   AddAtributo(input,"type","password");
    AddAtributo(input,"placeholder","Ingrese su contraseña");
    SaveObjeto(div,input);
    //caja para olvido

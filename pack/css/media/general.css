@@ -124,17 +124,24 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
+    background: rgb(2,0,36);
+    background: -moz-linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
+    background: -webkit-linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
+    background: linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#3e7297",GradientType=1);
 }
 
 .cjlogueo { 
     display: inline-block;
-    width: 400px;
+    width: auto;
     height: auto;
     margin: 5px;
     padding: 5px;
-    border: 2px solid #ababaa;
     border-radius: 15px 15px 15px 15px;
-    box-shadow: 2px 3px #afafaf;
+    border: 1px solid #203341;
+    box-shadow: 1px 2px 5px 5px #385062;
+    background-color: #213543;
 }
 
 .cjlogueo > div:nth-child(1) {
@@ -142,37 +149,47 @@ body {
     justify-content: center;
     align-items: center;
     margin: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .img-logueo {
     width: 70px;
     height: 70px;
-    border: 1px solid #afafaf;
     display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    background-image: var(--imagen-login);
 }
 
 .caja-input { 
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: 15px;
     margin-right: 15px;
+    padding-left: 5px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #fff;
     border: 1px solid #d6d6d6;
     display: flex;
 }
 
 .caja-input > input {
     height: 30px;
-    width: 330px;
+    margin-right: 10px;
     border: none;
     text-indent: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     outline: none;
-    color: #424242;
+    color: #5a5a5a;
 }
-
+  
 .cjlogueo > div:nth-child(4) {
+    margin-left: 15px;
+    margin-right: 15px;
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
@@ -182,7 +199,9 @@ body {
 
 .lb-singup {
     margin-left: 10px;
-    
+    text-align: center;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .lb-singup:hover {
@@ -195,6 +214,9 @@ body {
 
 .lb-olvido {
     margin-right: 10px;
+    text-align: center;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .lb-olvido::after {
@@ -206,37 +228,57 @@ body {
 }
 
 .cjlogueo > div:nth-child(5){
+    margin-left: 15px;
+    margin-right: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .btn-loguear {
+    position: relative;
     margin-top: 10px;
-    width: 120px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px 5px 5px 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    background-color: #122837;
+    border-radius: 10px 10px 10px 10px;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn-loguear::after {
-    content: var(--texto-btnlogin);
-}
+.btn-loguear::after { content: var(--texto-btnlogin); }
 
 .btn-loguear:hover {
     cursor: pointer;
+    background-color: #172b38;
+    transform: scale(1.030);
+    transition: all 0.1s ease;
+}
+
+.btn-loguear:active {
+    background-color: #0b1d28;
+    transform: scale(1.030);
+    transition: all 0.1s ease;
 }
 
 .img-mail {
     height: 33px;
     width: 33px;
-    
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-image: var(--imagen-mail);
 }
 
 .img-pass {
     height: 33px;
     width: 33px;
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-image: var(--imagen-pass);
 }

@@ -15,4 +15,5 @@
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
+    .caja-input > input { width: 270px; }
 }
