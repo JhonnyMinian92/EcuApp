@@ -25,11 +25,6 @@ function Componente(id){
     return document.getElementById(id);
 }
 
-//seleccionar para dar estilo
-function Estilo(id){
-    return documento.getElementById(id).style;
-}
-
 //agregar o eliminar contenido
 function Contenido(id, contenido){
     document.getElementById(id).innerHTML = contenido;

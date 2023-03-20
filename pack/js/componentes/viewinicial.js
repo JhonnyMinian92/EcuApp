@@ -95,7 +95,31 @@ function CrearCuerpoHTML() {
     //creacion de nav
     var minimenu = CrearObjeto("nav");
     AddAtributo(minimenu,"id", "idminimenu");
+    AddAtributo(minimenu,"Class","ocultar");
     SaveObjeto(header,minimenu);
+    
+    /*  Crear 4 botones de mini menu */
+    //boton de login
+    var li = CrearObjeto("div");
+    AddAtributo(li,"Class","li-login");
+    AddAtributo(li,"onclick", "btnlogin();");
+    SaveObjeto(minimenu,li);
+    //boton de servicio
+    var li = CrearObjeto("div");
+    AddAtributo(li,"Class","li-servicio")
+    AddAtributo(li,"onclick", "btnservicio();");
+    SaveObjeto(minimenu,li);
+    //boton de informacion
+    var li = CrearObjeto("div");
+    AddAtributo(li,"Class","li-informacion")
+    AddAtributo(li,"onclick", "btninformacion();");
+    SaveObjeto(minimenu,li);
+    //boton de contacto
+    var li = CrearObjeto("div");
+    AddAtributo(li,"Class","li-contacto");
+    AddAtributo(li,"onclick", "btncontactenos();");
+    SaveObjeto(minimenu,li);
+
     //creacion de logo
     var div = CrearObjeto("div");
     AddAtributo(div,"id", "idlogo");
@@ -135,6 +159,7 @@ function CrearCuerpoHTML() {
     //boton menu smartphone
     var div = CrearObjeto("div");
     AddAtributo(div,"id", "btnmenu5");
+    AddAtributo(div,"onclick","verminimenu();");
     AddAtributo(div,"class", "btnmenu");
     SaveObjeto(cjmenu,div);
 
@@ -176,4 +201,14 @@ function btnveruser() {
     var div = CrearObjeto("div");
     AddAtributo(div,"id", "flexVerDatos");
     SaveObjeto(contenedor,div);
+}
+
+function verminimenu(){
+    var menu = Componente("idminimenu");
+    if(menu.classList.contains('ocultar')){
+        AddAtributo(menu,"Class","mostrar");
+    }
+    else {
+        AddAtributo(menu,"Class","ocultar");
+    }
 }
