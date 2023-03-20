@@ -131,6 +131,9 @@ function CrearCuerpoHTML() {
     AddAtributo(li,"Class","li-contacto");
     AddAtributo(li,"onclick", "btncontactenos();");
     SaveObjeto(minimenu,li);
+    //marca de agua
+    var li = CrearObjeto("article");
+    SaveObjeto(minimenu,li);
 
     //creacion de logo
     var div = CrearObjeto("div");

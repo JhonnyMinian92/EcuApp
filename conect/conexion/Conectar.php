@@ -4,7 +4,7 @@ class Conectar {
     private $host = "localhost";
     private $usuario = "root";
     private $contrasena = "";
-    private $baseDatos = "ecuapp";
+    private $baseDatos = "ecuabd";
     private $conexion;
 
     public function __construct() {}
