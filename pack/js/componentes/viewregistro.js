@@ -32,6 +32,7 @@ function btnlogin() {
    var input = CrearObjeto("input");
    AddAtributo(input,"Class","text-correo");
    AddAtributo(input,"type","email");
+   AddAtributo(input,"maxlength","200");
    AddAtributo(input,"placeholder","Ingrese su correo electronico");
    SaveObjeto(div,input);
    //caja para clave
@@ -46,6 +47,7 @@ function btnlogin() {
    var input = CrearObjeto("input");
    AddAtributo(input,"Class","text-clave");
    AddAtributo(input,"type","password");
+   AddAtributo(input,"maxlength","20");
    AddAtributo(input,"placeholder","Ingrese su contraseña");
    SaveObjeto(div,input);
    //caja para olvido

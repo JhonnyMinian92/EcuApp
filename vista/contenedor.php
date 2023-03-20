@@ -15,6 +15,7 @@ $urlcss = "".$dominio."pack/css/";
         <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>repositorio.css" media="screen" />
         <!-- Llamar todos los js -->
         <script src="<?php echo $urljs ?>repositorio.js"></script>
+        <!-- meta para responsive design -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 </html>

@@ -57,9 +57,19 @@ function CrearMetaHead() {
     AddAtributo(metaTag,'robots', 'index,nofollow');
     SaveObjeto(cabecera,metaTag);
 
-    //crear los meta para autor
+    //crear los meta para cache
     var metaTag = CrearObjeto('meta');
     AddAtributo(metaTag,'http-equiv', 'cache-control');
+    AddAtributo(metaTag,'content', 'no-cache');
+    SaveObjeto(cabecera,metaTag);
+
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'http-equiv', 'expires');
+    AddAtributo(metaTag,'content', '0');
+    SaveObjeto(cabecera,metaTag);
+
+    var metaTag = CrearObjeto('meta');
+    AddAtributo(metaTag,'http-equiv', 'pragma');
     AddAtributo(metaTag,'content', 'no-cache');
     SaveObjeto(cabecera,metaTag);
 }
@@ -72,6 +82,8 @@ function CrearBody(){
 
 //crear todos los componentes del body
 function CrearCuerpoHTML() {
+    //routing a la pagina inicial
+    window.history.pushState({}, "", "/EcuApp/");
     //crear el contenido del head
     CrearMetaHead();    
     //crear el body para su contenido
@@ -175,6 +187,8 @@ function CrearCuerpoHTML() {
     var div = CrearObjeto("div");
     AddAtributo(div,"id", "flexnoticias");
     SaveObjeto(article,div);
+    //Ejecutar la funcion con las noticias
+    ViewNoticias();
 
     //creacion de pie de pagina
     var footer = CrearObjeto("footer");
@@ -187,7 +201,22 @@ function CrearCuerpoHTML() {
 }
 
 function ViewNoticias(){
-
+    //seleccionar contenedor
+    var noticias = Componente("flexnoticias");
+    //subcontenedor
+    var div = CrearObjeto("div");
+    AddAtributo(div,"Class","info-principal");
+    SaveObjeto(noticias,div);
+    //texto de pregunta
+    var h1 = CrearObjeto("div");
+    SaveObjeto(div,h1);
+    //texto de subtitulo
+    var h2 = CrearObjeto("div");
+    SaveObjeto(div,h2);
+    //boton para ir a informacion
+    var boton = CrearObjeto("div");
+    AddAtributo(boton,"onclick", "btninformacion();");
+    SaveObjeto(div,boton);
 }
 
 function ViewFooter(){

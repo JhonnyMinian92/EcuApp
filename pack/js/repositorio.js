@@ -1,4 +1,5 @@
 var url = "pack/js/componentes/";
+var ubicacion = "";
 
 //ventana con cambios de logueado
 document.write('<script src="'+url+'viewlogueado.js"></script>');
@@ -53,4 +54,11 @@ function SaveObjeto(contenedor, objeto){
 //eliminar un objeto seleccionado
 function DelObjeto(id){
     document.getElementById(id).remove();
+}
+
+//geolocalizacion para registro de usuarios
+if (navigator.geolocation) { navigator.geolocation.getCurrentPosition(capturaPosicion); }
+//funcion que genera ubicacion con google maps
+function capturaPosicion(pos){
+  this.ubicacion = "https://www.google.com.ec/maps/@"+pos.coords.latitude+","+pos.coords.longitude+",19z?hl=es";
 }
