@@ -109,12 +109,10 @@ body {
 }
 
 #flexnoticias {
-    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-	flex-wrap: wrap;
-    height: 400px;
+    height: 635px;
 }
 
 .btnuser {
@@ -130,7 +128,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
     background: rgb(2,0,36);
     background: -moz-linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
@@ -340,12 +338,14 @@ body {
     
 }
 .info-principal > div:nth-child(1)::after { content: var(--texto-pregunta);  }
+
 .info-principal > div:nth-child(2) { 
     margin-bottom: 50px; 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
 .info-principal > div:nth-child(2)::after { content: var(--texto-beneficio); }
+
 .info-principal > div:nth-child(3){
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -360,16 +360,13 @@ body {
     padding-right: 40px;
     display: inline-block;
 }
-
 .info-principal > div:nth-child(3)::after { content: var(--texto-btn2); }
-
 .info-principal > div:nth-child(3):hover {
     cursor: pointer;
     background-color: #a52a2a;
     transform: scale(1.030);
     transition: all 0.1s ease;
 }
-
 .info-principal > div:nth-child(3):active {
     background-color: #b73131;
     transform: scale(1.030);

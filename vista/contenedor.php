@@ -11,11 +11,21 @@ $urlcss = "".$dominio."pack/css/";
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- para definir codificacion -->
+        <meta charset="UTF-8">
+        <!-- meta para responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Llamar todos los css -->
         <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>repositorio.css" media="screen" />
         <!-- Llamar todos los js -->
         <script src="<?php echo $urljs ?>repositorio.js"></script>
-        <!-- meta para responsive design -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- meta para no guardar cache -->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <!-- meta para no indexar paginas -->
+        <meta name="robots" content="noindex">
+        <link rel="canonical" href="URL_canónica_de_la_página">
+        <meta name="robots" content="nofollow">
     </head>
 </html>

@@ -22,11 +22,6 @@ function CrearMetaHead() {
     AddAtributo(link,"href","favicon.ico");
     SaveObjeto(cabecera,link);
 
-    //crear los meta para charset
-    var metaTag = CrearObjeto('meta');
-    AddAtributo(metaTag,'charset', 'UTF-8');
-    SaveObjeto(cabecera,metaTag);
-
     //crear los meta para nombre
     var metaTag = CrearObjeto('meta');
     AddAtributo(metaTag,'name', 'EcuApp');
@@ -50,27 +45,6 @@ function CrearMetaHead() {
     //crear los meta para copyright
     var metaTag = CrearObjeto('meta');
     AddAtributo(metaTag,'copyright', '© 2023 - Jhonny Darwin Miñan Giron');
-    SaveObjeto(cabecera,metaTag);
-
-    //crear los meta para robots
-    var metaTag = CrearObjeto('meta');
-    AddAtributo(metaTag,'robots', 'index,nofollow');
-    SaveObjeto(cabecera,metaTag);
-
-    //crear los meta para cache
-    var metaTag = CrearObjeto('meta');
-    AddAtributo(metaTag,'http-equiv', 'cache-control');
-    AddAtributo(metaTag,'content', 'no-cache');
-    SaveObjeto(cabecera,metaTag);
-
-    var metaTag = CrearObjeto('meta');
-    AddAtributo(metaTag,'http-equiv', 'expires');
-    AddAtributo(metaTag,'content', '0');
-    SaveObjeto(cabecera,metaTag);
-
-    var metaTag = CrearObjeto('meta');
-    AddAtributo(metaTag,'http-equiv', 'pragma');
-    AddAtributo(metaTag,'content', 'no-cache');
     SaveObjeto(cabecera,metaTag);
 }
 
