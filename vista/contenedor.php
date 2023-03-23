@@ -25,7 +25,7 @@ $urlcss = "".$dominio."pack/css/";
         <meta http-equiv="Expires" content="0">
         <!-- meta para no indexar paginas -->
         <meta name="robots" content="noindex">
-        <link rel="canonical" href="URL_canónica_de_la_página">
+        <link rel="canonical" href="http://localhost/EcuApp/">
         <meta name="robots" content="nofollow">
     </head>
 </html>

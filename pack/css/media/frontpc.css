@@ -1,16 +1,16 @@
 @media only screen and (min-width: 1201px) and (max-width: 1920px) {
     #cjmenu { width: 500px; }
     #cjmenu > div:nth-child(1) { width: 152px; font-size: 18px; }
-    #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid #6f9aba; }
-    #cjmenu > div:nth-child(1):active { border-bottom: 3px solid #36546c; }
+    #cjmenu > div:nth-child(1):hover { border-bottom: 3px solid var(--color-menu); }
+    #cjmenu > div:nth-child(1):active { border-bottom: 3px solid var(--color-prinactive); }
     #cjmenu > div:nth-child(1)::before { content: var(--texto-btn1); }
     #cjmenu > div:nth-child(2) { width: 152px; font-size: 18px; }
-    #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid #6f9aba; }
-    #cjmenu > div:nth-child(2):active { border-bottom: 3px solid #36546c; }
+    #cjmenu > div:nth-child(2):hover { border-bottom: 3px solid var(--color-menu); }
+    #cjmenu > div:nth-child(2):active { border-bottom: 3px solid var(--color-prinactive); }
     #cjmenu > div:nth-child(2)::before { content: var(--texto-btn2); }
     #cjmenu > div:nth-child(3) { width: 151px; font-size: 18px; }  
-    #cjmenu > div:nth-child(3):hover { border-bottom: 3px solid #6f9aba; }
-    #cjmenu > div:nth-child(3):active { border-bottom: 3px solid #36546c; }
+    #cjmenu > div:nth-child(3):hover { border-bottom: 3px solid var(--color-menu); }
+    #cjmenu > div:nth-child(3):active { border-bottom: 3px solid var(--color-prinactive); }
     #cjmenu > div:nth-child(3)::before { content: var(--texto-btn3); }
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }

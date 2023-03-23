@@ -15,13 +15,13 @@ body {
     position: relative;
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #415b6e;
+    border-bottom: 2px solid var(--color-prinborder);
 }
 #idnav {
     position: relative;
     width: auto;
     height: 75px;
-    background-color: #242e36;
+    background-color: var(--color-primario);
     border-bottom: 1px solid #1c272f;
 }
 #idlogo {
@@ -40,7 +40,7 @@ body {
     display: inline-block;
     margin-left: 5px;
     width: 110px;
-    color: #fff;
+    color: var(--color-textblanco);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     position: relative;
@@ -62,7 +62,7 @@ body {
 #cjmenu > div {
     display: inline-block;
     position: relative;
-    color: #fff;
+    color: var(--color-textblanco);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -130,11 +130,11 @@ body {
     align-items: center;
     height: 100dvh;
     width: 100%;
-    background: rgb(2,0,36);
-    background: -moz-linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
-    background: -webkit-linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
-    background: linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(52,79,99,1) 53%, rgba(62,114,151,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#3e7297",GradientType=1);
+    background: var(--color-base);
+    background: var(--color-moz);
+    background: var(--color-webkit);
+    background: var(--color-gradiente);
+    filter: var(--filtro-gradiente);
 }
 
 .cjlogueo { 
@@ -144,9 +144,9 @@ body {
     margin: 5px;
     padding: 5px;
     border-radius: 15px 15px 15px 15px;
-    border: 1px solid #203341;
-    box-shadow: 1px 2px 5px 5px #385062;
-    background-color: #213543;
+    border: 1px solid var(--color-prinborder);
+    box-shadow: 1px 2px 5px 5px var(--color-prinshadow);
+    background-color: var(--color-prinactive);
 }
 
 .cjlogueo > div:nth-child(1) {
@@ -176,8 +176,8 @@ body {
     margin-right: 15px;
     padding-left: 5px;
     border-radius: 10px 10px 10px 10px;
-    background-color: #fff;
-    border: 1px solid #d6d6d6;
+    background-color: var(--color-textblanco);
+    border: 1px solid var(--color-textplomo);
     display: flex;
 }
 
@@ -189,7 +189,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     outline: none;
-    color: #5a5a5a;
+    color: var(--color-textplomo);
 }
   
 .cjlogueo > div:nth-child(4) {
@@ -205,7 +205,7 @@ body {
 .lb-singup {
     margin-left: 10px;
     text-align: center;
-    color: #fff;
+    color: var(--color-textblanco);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -220,7 +220,7 @@ body {
 .lb-olvido {
     margin-right: 10px;
     text-align: center;
-    color: #fff;
+    color: var(--color-textblanco);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -246,10 +246,11 @@ body {
     margin-top: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: #fff;
-    background-color: #122837;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: var(--color-textblanco);
+    border: 1px solid var(--color-prinborder);
+    background-color: var(--color-boton);
     border-radius: 10px 10px 10px 10px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -259,14 +260,14 @@ body {
 
 .btn-loguear:hover {
     cursor: pointer;
-    background-color: #172b38;
-    transform: scale(1.030);
+    background-color: var(--color-prinhover);
+    transform: scale(1.050);
     transition: all 0.1s ease;
 }
 
 .btn-loguear:active {
-    background-color: #0b1d28;
-    transform: scale(1.030);
+    background-color: var(--color-prinactive);
+    transform: scale(1.050);
     transition: all 0.1s ease;
 }
 
@@ -289,35 +290,35 @@ body {
 }
 #idminimenu {
     position: absolute;
-    background-color: #242e36;
+    background-color: var(--color-primario);
     z-index: 1;
     margin-top: 2px;
     height: 89vh;
     width: 250px;
     right: 0px;
-    border-left: 1px solid #8b8b8b;
+    border-left: 1px solid var(--color-prinborder);
 }
 
 #idminimenu > div {
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top: 1px solid #303d48;
-    border-bottom: 1px solid #303d48;
-    box-shadow: 0.5px 2px #394752;
+    border-top: 1px solid var(--color-prinborder);
+    border-bottom: 1px solid var(--color-prinborder);
+    box-shadow: 0.5px 2px var(--color-prinshadow);
     text-indent: 15px;
-    color: #fff;
+    color: var(--color-textblanco);
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 #idminimenu > div:hover { 
     cursor: pointer; 
-    background-color: #213543;
-    color: #fff;
+    background-color: var(--color-prinhover);
+    color: var(--color-textblanco);
 }
 #idminimenu > div:active { 
     cursor: pointer; 
-    background-color: #2d4150;
-    color: #fff;
+    background-color: var(--color-prinactive);
+    color: var(--color-textblanco);
 }
 .li-login::after { content: var(--texto-btnlogin); }
 .li-servicio::after { content: var(--texto-btn1); }
@@ -337,22 +338,22 @@ body {
     font-weight: bold;
     
 }
-.info-principal > div:nth-child(1)::after { content: var(--texto-pregunta);  }
+.info-principal > div:nth-child(1)::after { content: var(--texto-pregunta); color: var(--color-textnegro);  }
 
 .info-principal > div:nth-child(2) { 
     margin-bottom: 50px; 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
-.info-principal > div:nth-child(2)::after { content: var(--texto-beneficio); }
+.info-principal > div:nth-child(2)::after { content: var(--texto-beneficio); color: var(--color-textnegro); }
 
 .info-principal > div:nth-child(3){
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
-    border: 1px solid #9f2222;
-    box-shadow: 2px 3px 0px #f67d7d;
-    background-color: #b93030;
-    color: #fff;
+    border: 1px solid var(--color-secunborder);
+    box-shadow: 2px 3px 0px var(--color-secunshadow);
+    background-color: var(--color-secundario);
+    color: var(--color-textblanco);
     border-radius: 5px 5px 5px 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -363,13 +364,13 @@ body {
 .info-principal > div:nth-child(3)::after { content: var(--texto-btn2); }
 .info-principal > div:nth-child(3):hover {
     cursor: pointer;
-    background-color: #a52a2a;
-    transform: scale(1.030);
+    background-color: var(--color-secunhover);
+    transform: scale(1.050);
     transition: all 0.1s ease;
 }
 .info-principal > div:nth-child(3):active {
-    background-color: #b73131;
-    transform: scale(1.030);
+    background-color: var(--color-secunactive);
+    transform: scale(1.050);
     transition: all 0.1s ease;
 }
 
