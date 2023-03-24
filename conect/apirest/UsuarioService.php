@@ -1,4 +1,10 @@
 <?php
+
+require_once ("../control/Crud.php");
+
+//varible para devolver
+$respuesta;
+
 // Verificar que la solicitud sea un POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('HTTP/1.1 405 Method Not Allowed');
@@ -23,22 +29,21 @@ else {
             if (isset($data['opcion'])) {
                 //caso con las opciones a ejecutar
                 switch ($data['opcion']) {
-                    case 1:
-                        if(LogueoUsuario($data['correo'],$data['clave'])){ echo "Logueo de Usuario"; }
+                    case "logueo":
+                        $crud = new MICRUD();
+                        $respuesta = $crud->encontrar($data['correo'],$data['clave']);
                         break;
-                    case 2:
+                    case "registro":
                         echo "Ingresar Usuario";
                         break;
-                    case 3:
+                    case "modifica":
                         echo "Modificar Clave";
                         break;
-                    case 4:
+                    case "permiso":
                         echo "Modificar Rol";
                         break;
-                    default:
-                        echo "";
-                        break;
                 }
+                echo json_encode($respuesta);
             }
             else {
                 header('WWW-Authenticate: Basic realm="EcuApp"');
@@ -49,17 +54,5 @@ else {
     }
 
 }
-
-//funcion Logueo de Usuario
-function LogueoUsuario($correo, $clave){
-    return true;
-}
-
-//funcion Ingresar Usuario
-
-//funcion  Modificar Clave
-
-//funcion Modificar Rol
-
 
 ?>

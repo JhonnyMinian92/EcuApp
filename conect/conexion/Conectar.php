@@ -3,7 +3,7 @@
 class Conectar {
     private $host = "localhost";
     private $usuario = "root";
-    private $contrasena = "";
+    private $contrasena = "EcuaP@ss2023";
     private $baseDatos = "ecuabd";
     private $conexion;
 
@@ -14,8 +14,9 @@ class Conectar {
         return $this->conexion;
     }
 
-    public function Desconectar($conexion) {
-        mysqli_close($conexion);
+    public function Desconectar() {
+        mysqli_close($this->conexion);
     }
 }
+
 ?>
