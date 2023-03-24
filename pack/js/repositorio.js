@@ -1,5 +1,6 @@
+//url para los componentes js
 var url = "pack/js/componentes/";
-var usuarioservice = "http://localhost/EcuApp/conect/control/UsuarioMiddle.php";
+//variable para almacenar ubicacion (login)
 var ubicacion = "";
 
 //ventana con cambios de logueado
@@ -14,7 +15,6 @@ document.write('<script src="'+url+'viewinformacion.js"></script>');
 document.write('<script src="'+url+'viewcontactenos.js"></script>');
 //ventana inicial 
 document.write('<script src="'+url+'viewinicial.js"></script>');
-
 
 //Funciones para seleccionar objeto
 function refresh() {
@@ -63,3 +63,27 @@ if (navigator.geolocation) { navigator.geolocation.getCurrentPosition(capturaPos
 function capturaPosicion(pos){
   this.ubicacion = "https://www.google.com.ec/maps/@"+pos.coords.latitude+","+pos.coords.longitude+",19z?hl=es";
 }
+
+//impedir click derecho en el documento
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+}, false);
+
+  
+//Deshabilitar opciones de teclas
+document.onkeydown = function(e) {
+    // impedir la tecla F12
+    if (event.keyCode == 123) {
+      return false;
+    }
+    // Deshabilitar la visualización de la fuente de la página al presionar Ctrl+U
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
+    // Deshabilitar la visualización presionar Win+U en sistemas Windows o Cmd+U en sistemas macOS
+    if ((e.metaKey && e.keyCode == 'U'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+        return false;
+    }
+  }
+  
+  

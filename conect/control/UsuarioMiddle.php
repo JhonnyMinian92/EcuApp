@@ -2,24 +2,28 @@
 
 include("../conexion/Directorio.php");
 
+//crear un codigo que codifique las opciones
+$_POST["opcion"] = base64_decode($_POST["opcion"]);
+
 if(isset($_POST["opcion"])){
     //Escoger las opciones
     switch ($_POST["opcion"]) {
-        case 1:
+        case "op1":
             //funcion para logueo incial de usuario
             echo ServicioLogueo($_POST["correo"],$_POST["clave"]);
             break;
-        case 2:
+        case "op2":
             
             break;
-        case 3:
+        case "op3":
             
             break;
-        case 4:
+        case "op4":
             
             break;
         default:
-            echo "La opcion no existe";
+            header('HTTP/1.1 405 Method Not Allowed');
+            echo 'Acceso incorrecto';
             break;
     }
 } 

@@ -1,3 +1,11 @@
+//unica ruta del servicio para Usuarios
+var usuarioservice = "http://localhost/EcuApp/conect/control/UsuarioMiddle.php";
+//opciones cifradas para accedo a servicio
+var op1 = btoa("op1");
+var op2 = btoa("op2");
+var op3 = btoa("op3");
+var op4 = btoa("op4");
+
 function btnlogin() {
     //routing de logueo/registro
     window.history.pushState({},"", "/EcuApp/#registro");
@@ -96,9 +104,9 @@ function IngresarLogin(){
             } else {
                     mail.value = "";
                     clave.value = "";
-                    alert("Usuario o Clave incorrecta"); 
+                    console.log("Usuario o Clave incorrecta"); 
             }
         }
     };
-    ajax.send("correo="+mail.value+"&clave="+clave.value+"&opcion=1");
+    ajax.send("correo="+mail.value+"&clave="+clave.value+"&opcion="+op1+"");
 }
