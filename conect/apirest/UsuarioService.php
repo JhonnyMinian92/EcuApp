@@ -40,16 +40,15 @@ else {
                         echo "Modificar Clave";
                         break;
                     case "permiso":
-                        echo "Modificar Rol";
+                        echo "Doble Autenticacion";
                         break;
                 }
                 echo json_encode($respuesta);
             }
             else {
-                header('WWW-Authenticate: Basic realm="EcuApp"');
-                header('HTTP/1.0 401 Unauthorized');
-                echo 'Acceso incorrecta';
-                exit;
+                    header('HTTP/1.1 405 Method Not Allowed');
+                    echo 'Acceso incorrecto';
+                    exit;
             }
     }
 

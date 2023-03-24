@@ -1,4 +1,5 @@
 var url = "pack/js/componentes/";
+var usuarioservice = "http://localhost/EcuApp/conect/control/UsuarioMiddle.php";
 var ubicacion = "";
 
 //ventana con cambios de logueado

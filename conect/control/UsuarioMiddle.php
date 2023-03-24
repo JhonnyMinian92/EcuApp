@@ -2,27 +2,31 @@
 
 include("../conexion/Directorio.php");
 
-//$_POST["opcion"] = 1;
-//$_POST["correo"] = "jhonnyminian@gmail.com";
-//$_POST["clave"] = "123456789";
-
-//Escoger las opciones
-switch ($_POST["opcion"]) {
-    case 1:
-        echo ServicioLogueo($_POST["correo"],$_POST["clave"]);
-        break;
-    case 2:
-        
-        break;
-    case 3:
-        
-        break;
-    case 4:
-        
-        break;
-    default:
-        echo "La opcion no existe";
-        break;
+if(isset($_POST["opcion"])){
+    //Escoger las opciones
+    switch ($_POST["opcion"]) {
+        case 1:
+            //funcion para logueo incial de usuario
+            echo ServicioLogueo($_POST["correo"],$_POST["clave"]);
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            break;
+        default:
+            echo "La opcion no existe";
+            break;
+    }
+} 
+else {
+        header('HTTP/1.1 405 Method Not Allowed');
+        echo 'Acceso incorrecto';
+        exit;
 }
 
 

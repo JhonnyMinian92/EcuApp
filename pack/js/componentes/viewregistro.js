@@ -11,6 +11,7 @@ function btnlogin() {
    //crear cuadro de login
    var article = CrearObjeto("article");
    AddAtributo(article,"Class","cjlogueo");
+   AddAtributo(article,"id","contectauten");
    SaveObjeto(div,article);
    //crear cajas con componentes
    //caja para icono
@@ -33,6 +34,7 @@ function btnlogin() {
    AddAtributo(input,"Class","text-correo");
    AddAtributo(input,"type","email");
    AddAtributo(input,"maxlength","200");
+   AddAtributo(input,"id","txtmail");
    AddAtributo(input,"placeholder","Ingrese su correo electronico");
    SaveObjeto(div,input);
    //caja para clave
@@ -48,6 +50,7 @@ function btnlogin() {
    AddAtributo(input,"Class","text-clave");
    AddAtributo(input,"type","password");
    AddAtributo(input,"maxlength","20");
+   AddAtributo(input,"id","txtclave");
    AddAtributo(input,"placeholder","Ingrese su contraseña");
    SaveObjeto(div,input);
    //caja para olvido
@@ -79,5 +82,23 @@ function btnolvido(){
 }
 
 function IngresarLogin(){
-
+    //funcion para segundo metodo de autenticacion
+    var mail = Componente("txtmail");
+    var clave = Componente("txtclave");
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST",""+usuarioservice+"",true);
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4){
+            var json = eval("("+ajax.responseText+")");
+            if(json){
+                ValorTexto(contectauten,"");
+            } else {
+                    mail.value = "";
+                    clave.value = "";
+                    alert("Usuario o Clave incorrecta"); 
+            }
+        }
+    };
+    ajax.send("correo="+mail.value+"&clave="+clave.value+"&opcion=1");
 }
