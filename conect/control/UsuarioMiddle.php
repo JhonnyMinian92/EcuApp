@@ -2,35 +2,45 @@
 
 include("../conexion/Directorio.php");
 
-//crear un codigo que codifique las opciones
-$_POST["opcion"] = base64_decode($_POST["opcion"]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-if(isset($_POST["opcion"])){
-    //Escoger las opciones
-    switch ($_POST["opcion"]) {
-        case "op1":
-            //funcion para logueo incial de usuario
-            echo ServicioLogueo($_POST["correo"],$_POST["clave"]);
-            break;
-        case "op2":
-            
-            break;
-        case "op3":
-            
-            break;
-        case "op4":
-            
-            break;
-        default:
+    // Código que se ejecuta si la solicitud es POST
+    if(isset($_POST["opcion"])){
+
+        //crear un codigo que codifique las opciones
+        $_POST["opcion"] = base64_decode($_POST["opcion"]);
+    
+        //Escoger las opciones
+        switch ($_POST["opcion"]) {
+            case "op1":
+                //funcion para logueo incial de usuario
+                echo ServicioLogueo($_POST["correo"],$_POST["clave"]);
+                break;
+            case "op2":
+                
+                break;
+            case "op3":
+                
+                break;
+            case "op4":
+                
+                break;
+            default:
+                header('HTTP/1.1 405 Method Not Allowed');
+                echo 'Acceso incorrecto';
+                break;
+        }
+    } 
+    else {
             header('HTTP/1.1 405 Method Not Allowed');
             echo 'Acceso incorrecto';
-            break;
+            exit;
     }
-} 
-else {
-        header('HTTP/1.1 405 Method Not Allowed');
-        echo 'Acceso incorrecto';
-        exit;
+
+} else {
+    // Código que se ejecuta si la solicitud no es POST
+    header('HTTP/1.1 405 Method Not Allowed');
+    exit;
 }
 
 

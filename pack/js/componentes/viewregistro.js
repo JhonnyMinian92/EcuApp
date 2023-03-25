@@ -1,10 +1,10 @@
 //unica ruta del servicio para Usuarios
 var usuarioservice = "http://localhost/EcuApp/conect/control/UsuarioMiddle.php";
 //opciones cifradas para accedo a servicio
-var op1 = btoa("op1");
-var op2 = btoa("op2");
-var op3 = btoa("op3");
-var op4 = btoa("op4");
+const op1 = btoa("op1");
+const op2 = btoa("op2");
+const op3 = btoa("op3");
+const op4 = btoa("op4");
 
 function btnlogin() {
     //routing de logueo/registro
@@ -82,31 +82,45 @@ function btnlogin() {
 }
 
 function btnregister(){
+    //codigo para registrar nuevo usuario
 
 }
 
 function btnolvido(){
+    //codigo para cuando olvido clave
     
+}
+
+function doblefactor(){
+    //codigo para crear el form de doble factor
+
 }
 
 function IngresarLogin(){
     //funcion para segundo metodo de autenticacion
     var mail = Componente("txtmail");
     var clave = Componente("txtclave");
-    var ajax = new XMLHttpRequest();
-    ajax.open("POST",""+usuarioservice+"",true);
-    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    ajax.onreadystatechange = function(){
-        if(ajax.readyState == 4){
-            var json = eval("("+ajax.responseText+")");
-            if(json){
-                ValorTexto(contectauten,"");
-            } else {
-                    mail.value = "";
-                    clave.value = "";
-                    console.log("Usuario o Clave incorrecta"); 
-            }
-        }
-    };
-    ajax.send("correo="+mail.value+"&clave="+clave.value+"&opcion="+op1+"");
+    if(mail.value == "" || clave.value == ""){
+        MensajeNotif("Ingrese todos los campos","atencion");
+    } else {
+        if(validarEmail(mail.value)){
+                var ajax = new XMLHttpRequest();
+                ajax.open("POST",""+usuarioservice+"",true);
+                ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                ajax.onreadystatechange = function(){
+                    if(ajax.readyState == 4){
+                        var json = eval("("+ajax.responseText+")");
+                        if(json){
+                            ValorTexto(contectauten,"");
+                            doblefactor();
+                        } else {
+                                mail.value = "";
+                                clave.value = "";
+                                MensajeNotif("Usuario o Clave incorrecta","error");
+                        }
+                    }
+                };
+                ajax.send("correo="+mail.value+"&clave="+clave.value+"&opcion="+op1+"");
+        } else { mail.value = ""; MensajeNotif("Ingrese un correo valido","error"); }
+    }
 }
