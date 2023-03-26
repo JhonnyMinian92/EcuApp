@@ -142,7 +142,33 @@ function validarEmail(correo) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regex.test(correo)) { return true; } else { return false; }
 }
-  
+
+//funcionpara validar solo ingreso de numeros
+function validarNumeros(event, indice) {
+    // Obtener el código de la tecla presionada
+    var codigoTecla = event.which || event.keyCode;
+    // Verificar si la tecla presionada es un número
+    if (codigoTecla >= 48 && codigoTecla <= 57) { 
+        //previene el ingreso en el input actual
+        event.preventDefault();
+        //preguarda el valor en el input actual
+        document.getElementById(indice).value = String.fromCharCode(codigoTecla);
+        //salta al siguiente input
+        SaltarFocus(indice);
+        return false;
+    } else { 
+        return true; 
+    }
+} 
+
+function SaltarFocus(id) {
+    var numero = parseInt(id.toString().slice(-1)) + 1;
+    //verifica que no exceda de los 6 inputs existentes
+    if(numero <= 6){
+        document.getElementById("txtdig" + numero).value = "";
+        document.getElementById("txtdig" + numero).focus();
+    }
+}
 
 //impedir click derecho en el documento
 document.addEventListener("contextmenu", function(e){

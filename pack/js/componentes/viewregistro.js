@@ -1,5 +1,8 @@
 //unica ruta del servicio para Usuarios
 var usuarioservice = "http://localhost/EcuApp/conect/control/UsuarioMiddle.php";
+// Configuramos la duración de la cuenta regresiva (en segundos)
+var duracion = 180;
+var intervalID;
 //opciones cifradas para accedo a servicio
 const op1 = btoa("op1");
 const op2 = btoa("op2");
@@ -8,7 +11,7 @@ const op4 = btoa("op4");
 
 function btnlogin() {
     //routing de logueo/registro
-    window.history.pushState({},"", "/EcuApp/#registro");
+    window.history.pushState({},"", "/EcuApp/#login");
     //front para loguearse/registrarse
    Contenido("cuerpogeneral","");
    //crear conteniido
@@ -83,17 +86,66 @@ function btnlogin() {
 
 function btnregister(){
     //codigo para registrar nuevo usuario
-
+    window.history.pushState({},"", "/EcuApp/#registro");
 }
 
 function btnolvido(){
     //codigo para cuando olvido clave
-    
+    window.history.pushState({},"", "/EcuApp/#recuperacion");
 }
 
 function doblefactor(){
+    window.history.pushState({},"", "/EcuApp/#autenticacion");
     //codigo para crear el form de doble factor
-
+    var contenedor = Componente("contectauten");
+    //crear caja contenedora
+    var article = CrearObjeto("article");
+    AddAtributo(article,"Class","doble-factor");
+    SaveObjeto(contenedor,article);
+    //cabecera
+    var cabeza = CrearObjeto("div");
+    SaveObjeto(article,cabeza);
+    var imgaut = CrearObjeto("div");
+    AddAtributo(imgaut,"Class","img-auten");
+    SaveObjeto(cabeza,imgaut);
+    var lbaut = CrearObjeto("div");
+    AddAtributo(lbaut,"Class","lbtt-auten");
+    ValorTexto(lbaut,"AUTENTICACIÓN");
+    SaveObjeto(cabeza,lbaut);
+    //cuerpo
+    var cuerp = CrearObjeto("div");
+    AddAtributo(cuerp,"Class","caja-digitos");
+    SaveObjeto(article,cuerp);
+    var digitos = CrearObjeto("div");
+    SaveObjeto(cuerp,digitos);
+    //input para los 6 digitos
+    for(var i=1; i<=6; i++){
+        var dig  = CrearObjeto("input");
+        AddAtributo(dig,"id","txtdig"+i);
+        AddAtributo(dig,"Class","input-digito");
+        AddAtributo(dig,"maxlength","1");
+        AddAtributo(dig,"onkeydown","validarNumeros(event,this.id)");
+        SaveObjeto(digitos,dig);
+        if(i == 1){  dig.focus(); }
+    }
+    //indicacion
+    var indica = CrearObjeto("p");
+    ValorTexto(indica,"El codigo se envio a su correo");
+    SaveObjeto(cuerp,indica);
+    //cuenta atras
+    var cjcuenta = CrearObjeto("div");
+    SaveObjeto(article,cjcuenta);
+    var cuenta = CrearObjeto("div");
+    AddAtributo(cuenta,"id","lbcuentatras");
+    ValorTexto(cuenta,"00:00");
+    SaveObjeto(cjcuenta,cuenta);
+    intervalID = setInterval(actualizarCuentaAtras, 1000);
+    //botonera
+    var cjboton = CrearObjeto("div");
+    SaveObjeto(article,cjboton);
+    var btnaut = CrearObjeto("div");
+    AddAtributo(btnaut,"Class","btn-autentica");
+    SaveObjeto(cjboton,btnaut);
 }
 
 function IngresarLogin(){
@@ -124,3 +176,25 @@ function IngresarLogin(){
         } else { mail.value = ""; MensajeNotif("Ingrese un correo valido","error"); }
     }
 }
+
+// Función que actualiza cuenta regresiva
+function actualizarCuentaAtras() {
+    var cuentaAtras = document.getElementById("lbcuentatras");
+    // Obtenemos los minutos y segundos restantes
+    var minutos = Math.floor(duracion / 60);
+    var segundos = duracion % 60;
+    // Formateamos los minutos y segundos para mostrarlos con dos dígitos
+    var minutosTexto = minutos < 10 ? "0" + minutos : minutos;
+    var segundosTexto = segundos < 10 ? "0" + segundos : segundos;
+    // Actualizamos el contenido del elemento HTML con la cuenta regresiva
+    cuentaAtras.innerHTML = minutosTexto + ":" + segundosTexto;
+    // Restamos un segundo a la duración de la cuenta regresiva
+    duracion--;
+    // Si llegamos a cero, detenemos la cuenta regresiva
+    if (duracion < 0) {
+      cuentaAtras.innerHTML = "00:00";
+      clearInterval(intervalID);
+      duracion = 180;
+      btnlogin();
+    }
+  }

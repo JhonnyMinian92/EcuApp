@@ -506,3 +506,127 @@ body {
     transform: scale(1.050);
     transition: all 0.1s ease; 
 }
+
+.doble-factor {
+    width: 258px;
+    height: auto;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.doble-factor > div:nth-child(1){
+    display: flex;
+    margin: 5px;
+    padding-bottom: 10px;
+}
+
+.img-auten {
+    width: 30px;
+    height: 30px;
+    background-image: var(--imagen-factor);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.lbtt-auten {
+    text-indent: 10px;
+    color: var(--color-textblanco);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.caja-digitos {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.caja-digitos > div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: var(--color-textblanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px;
+}
+
+.caja-digitos > p {
+    text-align: center;
+    margin: 0;
+    color: var(--color-textblanco);
+    font-family: Arial;
+    font-size: 13px;
+    padding-top: 5px;
+}
+
+.input-digito {
+    height: 20px;
+    width: 29px;
+    margin: 5px;
+    border: none;
+    border-bottom: 3px solid var(--color-textplomo);
+    outline: none;
+    text-align: center;
+    color: var(--color-textplomo);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.doble-factor > div:nth-child(3){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doble-factor > div:nth-child(3) > div {
+    border: 1px solid var(--color-textplomo);
+    border-radius: 5px 5px;
+    color: var(--color-textblanco);
+    width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.doble-factor > div:nth-child(4){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-autentica {
+    margin: 10px;
+    width: 120px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    padding: 5px;
+    background-color: var(--color-primario);
+    border: 1px solid var(--color-prinborder);
+    box-shadow: 2px 2px var(--color-prinshadow);
+    border-radius: 10px 10px;
+    color: var(--color-textblanco);
+}
+
+.btn-autentica::after { content: "Ingresar"; }
+
+.btn-autentica:hover {
+    cursor: pointer;
+    background-color: var(--color-prinhover);
+    transform: scale(1.050);
+    transition: all 0.1s ease;  
+}
+
+.btn-autentica:active {
+    background-color: var(--color-prinactive);
+    transform: scale(1.050);
+    transition: all 0.1s ease; 
+}
