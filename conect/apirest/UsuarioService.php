@@ -1,9 +1,8 @@
 <?php
-
 require_once ("../control/Crud.php");
 
 //varible para devolver
-$respuesta;
+$respuesta = null;
 
 // Verificar que la solicitud sea un POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,7 +16,7 @@ else {
     $username = $_SERVER['PHP_AUTH_USER'];
     $password = $_SERVER['PHP_AUTH_PW'];
 
-    if ($username !== '3Cu4ppServ1c3' || $password !== 'R3st3cu4pp') {
+    if ($username !== $usuarioservice || $password !== $claveservicio) {
         header('WWW-Authenticate: Basic realm="EcuApp"');
         header('HTTP/1.0 401 Unauthorized');
         echo 'Autenticación incorrecta';

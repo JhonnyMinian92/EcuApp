@@ -51,7 +51,6 @@ function ServicioLogueo($correo, $clave){
         "correo" => $correo,
         "clave" => $clave
     );
-  
     // Convertir el array a formato JSON
     $json_data = json_encode($data);
     global $patch;

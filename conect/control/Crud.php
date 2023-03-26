@@ -1,6 +1,11 @@
 <?php
 
+session_start();
 require_once ("../conexion/Conectar.php");
+
+//usuario y clave de los servicios
+$usuarioservice = "3Cu4ppServ1c3";
+$claveservicio = "R3st3cu4pp";
 
 class MICRUD {
 
@@ -42,7 +47,19 @@ class MICRUD {
             // Obtener la fila del resultado
             $fila = $result->fetch_assoc();
             // Verificar la contraseña
-            if (password_verify($clave, $fila["pass_user"])) { return true; } else { return false; }
+            if (password_verify($clave, $fila["pass_user"])) {
+                //generamos el token unico aleatorio
+                //crear el token y guardarlo en la sesion si fue true
+                $numtoken = $this->GenerarToken();
+                //validar envio de correo con token
+                if($this->EnviarCorreo($usuario,$numtoken)){ 
+                    //cifrar variable sesion por seguridad
+                    $_SESSION['token'] = password_hash($numtoken, PASSWORD_DEFAULT);
+                    //retornar acceso
+                    return true; 
+                } else { return false; } 
+            } 
+            else { return false; }
         } else { return false; }
         //desconectar luego de la consulta
         $this->instancia->Desconectar();
@@ -51,6 +68,49 @@ class MICRUD {
     //funcion de LISTAR
     public function listar($sql){
 
+    }
+
+    public function GenerarToken(){
+        // Generamos una cadena aleatoria de longitud 10
+        $cadenaAleatoria = bin2hex(random_bytes(10));
+        // Aplicamos la función hash SHA-256 a la cadena aleatoria
+        $hash = hash('sha256', $cadenaAleatoria);
+        // Obtenemos los primeros 6 dígitos numéricos del hash
+        $token = preg_replace("/[^0-9]/", "", substr($hash, 0, 6));
+        // Si el token tiene menos de 6 dígitos, lo completamos con dígitos aleatorios
+        while(strlen($token) < 6) { $token .= mt_rand(0, 9); }
+        // Devolvemos el token generado
+        return $token;
+    }
+
+    public function EnviarCorreo($correo, $token){
+        $data = array(
+            "destinatario" => $correo,
+            "token" => $token
+        );
+        // Convertir el array a formato JSON
+        $json_data = json_encode($data);
+        //iniciar servicio de mailing
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://localhost/EcuApp/conect/apirest/MailingService.php',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => $json_data,
+        CURLOPT_HTTPHEADER => array(
+            'Authorization: Basic M0N1NHBwU2VydjFjMzpSM3N0M2N1NHBw',
+            'Content-Type: text/plain',
+            'Cookie: PHPSESSID=ecrvvjhaclpejq1jbbmv30162d'
+        ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return $response;
     }
 
 }
