@@ -25,6 +25,9 @@
     --texto-pregunta: "¿ Aún no conoces todos los servicios digitales ?";
     --texto-beneficio: "Descubre todos los beneficios ciudadanos";
 
+    /* variable tipo de letra */
+    --tipo-letra: Arial, Helvetica, sans-serif;
+
     /* colores principales de la pagina */
     --color-primario:#08131b;
     --color-secundario:#9f2222;

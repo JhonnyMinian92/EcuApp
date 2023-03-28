@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include("../conexion/Directorio.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -7,23 +8,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Código que se ejecuta si la solicitud es POST
     if(isset($_POST["opcion"])){
 
-        //crear un codigo que codifique las opciones
+        //decifrar opcion cifrada de javascript
         $_POST["opcion"] = base64_decode($_POST["opcion"]);
     
         //Escoger las opciones
         switch ($_POST["opcion"]) {
             case "op1":
+                //decifrar clave y usuario enviados por javascript
+                $_POST["correo"] = base64_decode($_POST["correo"]);
+                $_POST["clave"] = base64_decode($_POST["clave"]);
                 //funcion para logueo incial de usuario
                 echo ServicioLogueo($_POST["correo"],$_POST["clave"]);
                 break;
             case "op2":
+                //funcion para Ingresar Usuario
                 
                 break;
             case "op3":
+                //funcion para Modificar Clave
                 
                 break;
             case "op4":
+                //funcion para Validar Autenticacion
                 
+                break;
+            case "op5":
+                //resetear sesion
+                session_destroy();
+                echo json_encode(true);
                 break;
             default:
                 header('HTTP/1.1 405 Method Not Allowed');
@@ -40,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     // Código que se ejecuta si la solicitud no es POST
     header('HTTP/1.1 405 Method Not Allowed');
+    echo 'Acceso incorrecto';
     exit;
 }
 
@@ -72,7 +85,6 @@ function ServicioLogueo($correo, $clave){
         'Content-Type: application/json'
         ),
     ));
-
     // Enviar la solicitud cURL y recibir la respuesta
     $response = curl_exec($curl);
     curl_close($curl);

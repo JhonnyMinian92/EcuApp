@@ -1,5 +1,8 @@
 <?php
 
+//definir sesion solo mientras pestaña esta abierta
+session_set_cookie_params(0);
+//iniciar sesion para guardar token y usuario
 session_start();
 require_once ("../conexion/Conectar.php");
 
@@ -33,6 +36,11 @@ class MICRUD {
 
     }
 
+    //funcion de LISTAR
+    public function listar($sql){
+
+    }
+
     //funcion para loguear usuario
     public function encontrar($usuario, $clave){
         //prepara el select
@@ -47,14 +55,15 @@ class MICRUD {
             // Obtener la fila del resultado
             $fila = $result->fetch_assoc();
             // Verificar la contraseña
-            if (password_verify($clave, $fila["pass_user"])) {
+            if ($this->ValidarCifrado($clave, $fila["pass_user"])) {
                 //generamos el token unico aleatorio
                 //crear el token y guardarlo en la sesion si fue true
                 $numtoken = $this->GenerarToken();
                 //validar envio de correo con token
                 if($this->EnviarCorreo($usuario,$numtoken)){ 
                     //cifrar variable sesion por seguridad
-                    $_SESSION['token'] = password_hash($numtoken, PASSWORD_DEFAULT);
+                    $_SESSION['token'] = $this->CifrarDato($numtoken);
+                    $_SESSION['idusuario'] = $fila["id_userapp"];
                     //retornar acceso
                     return true; 
                 } else { return false; } 
@@ -63,11 +72,6 @@ class MICRUD {
         } else { return false; }
         //desconectar luego de la consulta
         $this->instancia->Desconectar();
-    }
-
-    //funcion de LISTAR
-    public function listar($sql){
-
     }
 
     public function GenerarToken(){
@@ -83,6 +87,7 @@ class MICRUD {
         return $token;
     }
 
+    //funcion para envio de correos personalizados
     public function EnviarCorreo($correo, $token){
         $data = array(
             "destinatario" => $correo,
@@ -111,6 +116,14 @@ class MICRUD {
         $response = curl_exec($curl);
         curl_close($curl);
         return $response;
+    }
+
+    public function CifrarDato($valor){
+        return password_hash($valor, PASSWORD_DEFAULT);
+    }
+
+    public function ValidarCifrado($valor, $cifrado){
+        if(password_verify($valor, $cifrado)){ return true; } else { return false; }
     }
 
 }

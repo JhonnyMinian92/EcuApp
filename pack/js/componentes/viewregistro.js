@@ -8,6 +8,7 @@ const op1 = btoa("op1");
 const op2 = btoa("op2");
 const op3 = btoa("op3");
 const op4 = btoa("op4");
+const op5 = btoa("op5");
 
 function btnlogin() {
     //routing de logueo/registro
@@ -84,16 +85,7 @@ function btnlogin() {
    SaveObjeto(div,boton);
 }
 
-function btnregister(){
-    //codigo para registrar nuevo usuario
-    window.history.pushState({},"", "/EcuApp/#registro");
-}
-
-function btnolvido(){
-    //codigo para cuando olvido clave
-    window.history.pushState({},"", "/EcuApp/#recuperacion");
-}
-
+//funcion para cargar pantalla de doble factor
 function doblefactor(){
     window.history.pushState({},"", "/EcuApp/#autenticacion");
     //codigo para crear el form de doble factor
@@ -145,11 +137,14 @@ function doblefactor(){
     SaveObjeto(article,cjboton);
     var btnaut = CrearObjeto("div");
     AddAtributo(btnaut,"Class","btn-autentica");
+    AddAtributo(btnaut,"onclick","ValidarToken();");
     SaveObjeto(cjboton,btnaut);
 }
 
+//funcion para logueo inicial
 function IngresarLogin(){
     //funcion para segundo metodo de autenticacion
+    MensajeCargando();
     var mail = Componente("txtmail");
     var clave = Componente("txtclave");
     if(mail.value == "" || clave.value == ""){
@@ -162,6 +157,7 @@ function IngresarLogin(){
                 ajax.onreadystatechange = function(){
                     if(ajax.readyState == 4){
                         var json = eval("("+ajax.responseText+")");
+                        OcultarMsg();
                         if(json){
                             ValorTexto(contectauten,"");
                             doblefactor();
@@ -172,7 +168,7 @@ function IngresarLogin(){
                         }
                     }
                 };
-                ajax.send("correo="+mail.value+"&clave="+clave.value+"&opcion="+op1+"");
+                ajax.send("correo="+btoa(mail.value)+"&clave="+btoa(clave.value)+"&opcion="+op1+"");
         } else { mail.value = ""; MensajeNotif("Ingrese un correo valido","error"); }
     }
 }
@@ -192,9 +188,67 @@ function actualizarCuentaAtras() {
     duracion--;
     // Si llegamos a cero, detenemos la cuenta regresiva
     if (duracion < 0) {
-      cuentaAtras.innerHTML = "00:00";
-      clearInterval(intervalID);
-      duracion = 180;
-      btnlogin();
+        //funcion para destruir la session
+        cuentaAtras.innerHTML = "00:00";
+        clearInterval(intervalID);
+        RompeSesion();
     }
+}
+
+  //anular cualquier posible sesion pendiente
+  function RompeSesion(){
+    MensajeCargando();
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST",""+usuarioservice+"",true);
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4){
+            var json = eval("("+ajax.responseText+")");
+            OcultarMsg();
+            if(json){
+                //codigo para retornar al inicio por no colocar token
+                duracion = 180;
+                btnlogin();
+            } else { console.log("no se cerro la sesion"); }
+        }
+    };
+    ajax.send("opcion="+op5+"");
   }
+
+//funcion para la validacion del token
+function ValidarToken(){
+    //texto ingresado de token
+    var txtcode1 = Componente("txtdig1");
+    var txtcode2 = Componente("txtdig2");
+    var txtcode3 = Componente("txtdig3");
+    var txtcode4 = Componente("txtdig4");
+    var txtcode5 = Componente("txtdig5");
+    var txtcode6 = Componente("txtdig6");
+    //concatenar token
+    var codigo = txtcode1.value+txtcode2.value+txtcode3.value+txtcode4.value+txtcode5.value+txtcode6.value; 
+    console.log(codigo);
+    /*
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST",""+usuarioservice+"",true);
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4){
+            var json = eval("("+ajax.responseText+")");
+            if(json == 1){ return true; } else { return false; }
+        }
+    };
+    ajax.send("opcion="+op4+"");
+    */
+}
+
+//funcion para registro de clientes
+function btnregister(){
+    //codigo para registrar nuevo usuario
+    window.history.pushState({},"", "/EcuApp/#registro");
+}
+
+//funcion para recuperar clave
+function btnolvido(){
+    //codigo para cuando olvido clave
+    window.history.pushState({},"", "/EcuApp/#recuperacion");
+}

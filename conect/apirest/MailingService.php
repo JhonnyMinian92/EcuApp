@@ -13,6 +13,8 @@
             // Verificar las credenciales del usuario antes de permitir que se ejecute la solicitud POST
             $username = $_SERVER['PHP_AUTH_USER'];
             $password = $_SERVER['PHP_AUTH_PW'];
+            //variable mensaje personalizada
+            $frontmensaje = "El codigo es : ";
 
             if ($username !== $usuarioservice || $password !== $claveservicio) {
                 header('WWW-Authenticate: Basic realm="EcuApp"');
@@ -27,7 +29,7 @@
                     //datos de entrada
                     $para = $data["destinatario"];
                     $titulo = "Codigo de Autenticacion ECUAPP";
-                    $mensaje = "El codigo es : ".$data['token'];
+                    $mensaje = $frontmensaje."".$data['token'];
                     $headers = [
                         'From' => 'Ecuapp Mail <ecuappmail@gmail.com>',
                         'X-Sender' => 'Ecuapp Mail <ecuappmail@gmail.com>',

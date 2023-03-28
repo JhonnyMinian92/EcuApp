@@ -64,6 +64,24 @@ function capturaPosicion(pos){
   this.ubicacion = "https://www.google.com.ec/maps/@"+pos.coords.latitude+","+pos.coords.longitude+",19z?hl=es";
 }
 
+//funcion para mostrar el mensaje de cargando
+function MensajeCargando(){
+        //crear capa transparente
+        var capa = CrearObjeto("section");
+        AddAtributo(capa, "Class", "capa-transpa");
+        AddAtributo(capa, "id", "idcapa");
+        SaveObjeto(cuerpogeneral, capa);
+        //crear cuadro de mensaje
+        var cuadro = CrearObjeto("article");
+        AddAtributo(cuadro, "Class", "cuadro-error");
+        AddAtributo(cuadro, "id", "idcuadromsg");
+        SaveObjeto(cuerpogeneral, cuadro);
+        //mostrar cargando en pantalla
+        var div = CrearObjeto("div");
+        AddAtributo(div,"Class","img-cargando");
+        SaveObjeto(cuadro,div);
+}
+
 //funcion  para mensaje de error
 function MensajeNotif(texto, tipo){
     //crear capa transparente

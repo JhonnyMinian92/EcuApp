@@ -28,18 +28,14 @@ else {
             if (isset($data['opcion'])) {
                 //caso con las opciones a ejecutar
                 switch ($data['opcion']) {
-                    case "logueo":
-                        $crud = new MICRUD();
-                        $respuesta = $crud->encontrar($data['correo'],$data['clave']);
+                    case "cifrar":
+                        echo "Cifrar Dato";
                         break;
-                    case "registro":
-                        echo "Ingresar Usuario";
+                    case "validar":
+                        echo "Comparar Cifrado";
                         break;
-                    case "modifica":
-                        echo "Modificar Clave";
-                        break;
-                    case "permiso":
-                        echo "Doble Autenticacion";
+                    case "correo":
+                        echo "Enviar Correo";
                         break;
                     default:
                         header('HTTP/1.1 405 Method Not Allowed');
