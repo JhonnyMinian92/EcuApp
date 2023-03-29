@@ -1,8 +1,10 @@
 if (sessionStorage.getItem('Statuslogueo') === 'true') {
     //definir cambios de logueo
+    window.history.pushState({},"", "/EcuApp/#principal");
     CrearCuerpoLogin();
 } else {
     //ejecutador pagina inicial sin login
+    window.history.pushState({},"", "/EcuApp/");
     CrearCuerpoHTML();
 }
 
@@ -56,8 +58,6 @@ function CrearBody(){
 
 //crear todos los componentes del body
 function CrearCuerpoHTML() {
-    //routing a la pagina inicial
-    window.history.pushState({}, "", "/EcuApp/");
     //crear el contenido del head
     CrearMetaHead();    
     //crear el body para su contenido
@@ -201,6 +201,7 @@ function ViewFooter(){
 }
 
 function btnveruser() {
+    window.history.pushState({},"", "/EcuApp/#DatosPersonales");
     var contenedor = Componente("idarticles");
     Contenido("idarticles","");
     //contenido donde se ven los datos del cliente logueado

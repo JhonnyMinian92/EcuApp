@@ -18,7 +18,6 @@ document.write('<script src="'+url+'viewinicial.js"></script>');
 
 //Funciones para seleccionar objeto
 function refresh() {
-    window.history.pushState({},"", "/EcuApp/");
     window.location.reload();
 }
 

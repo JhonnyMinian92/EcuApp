@@ -1,9 +1,5 @@
 <?php
 
-//definir sesion solo mientras pestaña esta abierta
-session_set_cookie_params(0);
-//iniciar sesion para guardar token y usuario
-session_start();
 require_once ("../conexion/Conectar.php");
 
 //usuario y clave de los servicios
@@ -14,6 +10,8 @@ class MICRUD {
 
     private $instancia;
     private $conexion;
+    public $token;
+    public $idusuario;
 
     public function __construct() {
         $this->instancia = new Conectar();
@@ -44,7 +42,7 @@ class MICRUD {
     //funcion para loguear usuario
     public function encontrar($usuario, $clave){
         //prepara el select
-        $stmt = $this->conexion->prepare("SELECT * FROM userapp WHERE mail_user = ? LIMIT 1");
+        $stmt = $this->conexion->prepare("SELECT * FROM userapp WHERE mail_user = ? AND (rol_user != 4 AND rol_user != 5) LIMIT 1");
         //agrega el parametro String(s) solo 1 por solo 1 parametro
         $stmt->bind_param("s", $usuario);
         // Ejecutar la consulta
@@ -62,8 +60,8 @@ class MICRUD {
                 //validar envio de correo con token
                 if($this->EnviarCorreo($usuario,$numtoken)){ 
                     //cifrar variable sesion por seguridad
-                    $_SESSION['token'] = $this->CifrarDato($numtoken);
-                    $_SESSION['idusuario'] = $fila["id_userapp"];
+                    $this->token = $this->CifrarDato($numtoken);
+                    $this->idusuario = $fila["id_userapp"];
                     //retornar acceso
                     return true; 
                 } else { return false; } 

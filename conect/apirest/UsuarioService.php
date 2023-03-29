@@ -1,4 +1,5 @@
 <?php
+
 require_once ("../control/Crud.php");
 
 //varible para devolver
@@ -26,11 +27,12 @@ else {
             // Recibir la solicitud POST con el array, el texto y el número
             $data = json_decode(file_get_contents('php://input'), true);
             if (isset($data['opcion'])) {
+                $crud = new MICRUD();
                 //caso con las opciones a ejecutar
                 switch ($data['opcion']) {
                     case "logueo":
-                        $crud = new MICRUD();
-                        $respuesta = $crud->encontrar($data['correo'],$data['clave']);
+                        $status = $crud->encontrar($data['correo'],$data['clave']);
+                        $respuesta = ["status"=>$status,"token"=>$crud->token,"idusuario"=>$crud->idusuario];                    
                         break;
                     case "registro":
                         echo "Ingresar Usuario";
@@ -39,7 +41,7 @@ else {
                         echo "Modificar Clave";
                         break;
                     case "permiso":
-                        echo "Doble Autenticacion";
+                        $respuesta = $crud->ValidarCifrado($data['token'],$data['almacen']);
                         break;
                     default:
                         header('HTTP/1.1 405 Method Not Allowed');

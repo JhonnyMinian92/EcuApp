@@ -209,7 +209,7 @@ function actualizarCuentaAtras() {
                 //codigo para retornar al inicio por no colocar token
                 duracion = 180;
                 btnlogin();
-            } else { console.log("no se cerro la sesion"); }
+            } else { MensajeNotif("Por favor  cerrar el navegador por seguridad","error"); }
         }
     };
     ajax.send("opcion="+op5+"");
@@ -217,6 +217,7 @@ function actualizarCuentaAtras() {
 
 //funcion para la validacion del token
 function ValidarToken(){
+    MensajeCargando();
     //texto ingresado de token
     var txtcode1 = Componente("txtdig1");
     var txtcode2 = Componente("txtdig2");
@@ -225,20 +226,29 @@ function ValidarToken(){
     var txtcode5 = Componente("txtdig5");
     var txtcode6 = Componente("txtdig6");
     //concatenar token
-    var codigo = txtcode1.value+txtcode2.value+txtcode3.value+txtcode4.value+txtcode5.value+txtcode6.value; 
-    console.log(codigo);
-    /*
+    var codigo = btoa(""+txtcode1.value+txtcode2.value+txtcode3.value+txtcode4.value+txtcode5.value+txtcode6.value+""); 
+    //enviar token por ajax
     var ajax = new XMLHttpRequest();
     ajax.open("POST",""+usuarioservice+"",true);
     ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     ajax.onreadystatechange = function(){
         if(ajax.readyState == 4){
             var json = eval("("+ajax.responseText+")");
-            if(json == 1){ return true; } else { return false; }
+            if(json){ 
+                //ocultar el cargando
+                OcultarMsg();
+                //guardar el token
+                sessionStorage.setItem('token', codigo);
+                sessionStorage.setItem('Statuslogueo',json); 
+                //llamar formulario logueado
+                refresh();
+                //detener el intervalo
+                clearInterval(intervalID);
+            }
+            else { MensajeNotif("El Token es incorrecto","error"); }
         }
     };
-    ajax.send("opcion="+op4+"");
-    */
+    ajax.send("opcion="+op4+"&token="+codigo);
 }
 
 //funcion para registro de clientes

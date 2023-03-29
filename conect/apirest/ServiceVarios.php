@@ -26,16 +26,17 @@ else {
             // Recibir la solicitud POST con el array, el texto y el número
             $data = json_decode(file_get_contents('php://input'), true);
             if (isset($data['opcion'])) {
+                $crud = new MICRUD();
                 //caso con las opciones a ejecutar
                 switch ($data['opcion']) {
                     case "cifrar":
-                        echo "Cifrar Dato";
+                        $respuesta = $crud->CifrarDato($data['clave']);
                         break;
                     case "validar":
-                        echo "Comparar Cifrado";
+                        $respuesta = $crud->ValidarCifrado($data['valor'],$data['cifrado']);
                         break;
-                    case "correo":
-                        echo "Enviar Correo";
+                    case "token":
+                        $respuesta = $crud->GenerarToken();
                         break;
                     default:
                         header('HTTP/1.1 405 Method Not Allowed');
