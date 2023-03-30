@@ -19,6 +19,22 @@
 CREATE DATABASE IF NOT EXISTS `ecuabd` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
 USE `ecuabd`;
 
+-- Volcando estructura para tabla ecuabd.rolapp
+CREATE TABLE IF NOT EXISTS `rolapp` (
+  `idrol` int(11) NOT NULL,
+  `nomrol` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`idrol`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla ecuabd.rolapp: ~6 rows (aproximadamente)
+INSERT INTO `rolapp` (`idrol`, `nomrol`) VALUES
+	(0, 'registrado'),
+	(1, 'usuario'),
+	(2, 'admin'),
+	(3, 'interno'),
+	(4, 'anulado'),
+	(5, 'bloqueado');
+
 -- Volcando estructura para tabla ecuabd.userapp
 CREATE TABLE IF NOT EXISTS `userapp` (
   `id_userapp` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `userapp` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla ecuabd.userapp: ~0 rows (aproximadamente)
-INSERT IGNORE INTO `userapp` (`id_userapp`, `mail_user`, `pass_user`, `rol_user`) VALUES
-	(1, 'jhonnyminian@gmail.com', '$2y$10$MmL3/39X8nnDrsw3/35p0eBDSiGZAYWvZ/74fmPkLiAB6djj0TGC6', '0');
+INSERT INTO `userapp` (`id_userapp`, `mail_user`, `pass_user`, `rol_user`) VALUES
+	(1, 'jhonnyminian@gmail.com', '$2y$10$MmL3/39X8nnDrsw3/35p0eBDSiGZAYWvZ/74fmPkLiAB6djj0TGC6', '5');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
