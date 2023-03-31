@@ -148,6 +148,7 @@ function IngresarLogin(){
     var mail = Componente("txtmail");
     var clave = Componente("txtclave");
     if(mail.value == "" || clave.value == ""){
+        OcultarMsg();
         MensajeNotif("Ingrese todos los campos","atencion");
     } else {
         if(validarEmail(mail.value)){
@@ -169,7 +170,7 @@ function IngresarLogin(){
                     }
                 };
                 ajax.send("correo="+btoa(mail.value)+"&clave="+btoa(clave.value)+"&opcion="+op1+"");
-        } else { mail.value = ""; MensajeNotif("Ingrese un correo valido","error"); }
+        } else { mail.value = ""; OcultarMsg(); MensajeNotif("Ingrese un correo valido","error"); }
     }
 }
 

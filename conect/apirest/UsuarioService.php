@@ -32,7 +32,7 @@ else {
                 switch ($data['opcion']) {
                     case "logueo":
                         $status = $crud->encontrar($data['correo'],$data['clave']);
-                        $respuesta = ["status"=>$status,"token"=>$crud->token,"idusuario"=>$crud->idusuario];                    
+                        $respuesta = ["status"=>$status,"token"=>$crud->token,"idusuario"=>$crud->idusuario,"rol"=>$crud->rol];                    
                         break;
                     case "registro":
                         echo "Ingresar Usuario";

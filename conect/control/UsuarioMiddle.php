@@ -26,7 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $data = json_decode($json);
                 // Acceder a los valores
                 echo json_encode($data->status);
-                if($data->status){ $_SESSION["token"] = $data->token; $_SESSION["idusuario"]  = $data->idusuario; }
+                if($data->status){ 
+                    $_SESSION["token"] = $data->token; 
+                    $_SESSION["idusuario"]  = $data->idusuario; 
+                    $_SESSION["rol"] = $data->rol;
+                }
                 break;
             case "op2":
                 //funcion para Ingresar Usuario

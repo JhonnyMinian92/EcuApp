@@ -12,11 +12,13 @@ class MICRUD {
     private $conexion;
     public $token;
     public $idusuario;
+    public $rol;
+    private $patch = "http://localhost/EcuApp/conect/apirest/";
 
     public function __construct() {
         $this->instancia = new Conectar();
         //variables de conexion
-        $this->conexion  = $this->instancia->ConectarBD();
+        $this->conexion  = $this->instancia->ConectarBD();        
     }
     
     //funciones de INSERTAR
@@ -62,6 +64,7 @@ class MICRUD {
                     //cifrar variable sesion por seguridad
                     $this->token = $this->CifrarDato($numtoken);
                     $this->idusuario = $fila["id_userapp"];
+                    $this->rol = $fila["rol_user"];
                     //retornar acceso
                     return true; 
                 } else { return false; } 
@@ -96,7 +99,7 @@ class MICRUD {
         //iniciar servicio de mailing
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://localhost/EcuApp/conect/apirest/MailingService.php',
+        CURLOPT_URL => $this->patch.'/MailingService.php',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
