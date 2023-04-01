@@ -1,5 +1,5 @@
 //unica ruta del servicio para Usuarios
-var usuarioservice = "http://localhost/EcuApp/conect/control/UsuarioMiddle.php";
+var usuarioservice = "http://localhost/EcuApp/control/UsuarioControl.php";
 // Configuramos la duración de la cuenta regresiva (en segundos)
 var duracion = 180;
 var intervalID;
