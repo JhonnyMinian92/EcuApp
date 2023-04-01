@@ -77,7 +77,7 @@ function MensajeCargando(){
         SaveObjeto(cuerpogeneral, cuadro);
         //mostrar cargando en pantalla
         var div = CrearObjeto("div");
-        AddAtributo(div,"Class","img-cargando");
+        AddAtributo(div,"Class","loader");
         SaveObjeto(cuadro,div);
 }
 

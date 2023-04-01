@@ -9,7 +9,7 @@ $urlcss = "".$dominio."pack/css/";
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <!-- para definir codificacion -->
         <meta charset="UTF-8">
