@@ -12,7 +12,15 @@
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 24px; }
-    .caja-input > input { width: 270px; }
+    .caja-input > input { width: 270px; height: 30px; }
+    .img-pass { height: 33px; width: 33px; }
+    .img-mail { height: 33px; width: 33px; }
+    .cjlogueo > div:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .desing-error { width: 320px; }
 }
 @media only screen and (min-width: 681px) and (max-width: 750px) {
     #cjmenu { width: 310px; }
@@ -31,7 +39,15 @@
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
-    .caja-input > input { width: 270px; }
+    .caja-input > input { width: 270px; height: 35px; }
+    .img-pass { height: 38px; width: 38px; }
+    .img-mail { height: 38px; width: 38px; }
+    .cjlogueo > div:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .desing-error { width: 320px; }
 }
 @media only screen and (min-width: 751px) and (max-width: 1200px) {
     #cjmenu { width: 410px; }
@@ -50,5 +66,13 @@
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
-    .caja-input > input { width: 270px; }
+    .caja-input > input { width: 280px; height: 35px; }
+    .img-pass { height: 38px; width: 38px; }
+    .img-mail { height: 38px; width: 38px; }
+    .cjlogueo > div:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .desing-error { width: 330px; }
 }

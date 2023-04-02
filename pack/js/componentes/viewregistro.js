@@ -70,11 +70,11 @@ function btnlogin() {
    SaveObjeto(article,div);
    var hiper = CrearObjeto("div");
    AddAtributo(hiper,"Class","lb-olvido");
-   AddAtributo(hiper,"onclick","btnolvido");
+   AddAtributo(hiper,"onclick","btnolvido();");
    SaveObjeto(div,hiper);
    var registro = CrearObjeto("div");
    AddAtributo(registro,"Class","lb-singup");
-   AddAtributo(registro,"onclick","btnregister");
+   AddAtributo(registro,"onclick","btnregister();");
    SaveObjeto(div,registro);
    //caja boton de logueo
    var div = CrearObjeto("div");
@@ -159,16 +159,22 @@ function IngresarLogin(){
                     if(ajax.readyState == 4){
                         var json = eval("("+ajax.responseText+")");
                         OcultarMsg();
-                        if(json){
+                        if(json == true){
                             ValorTexto(contectauten,"");
                             doblefactor();
-                        } else {
+                        } else if (json == "-1"){
                                 mail.value = "";
                                 clave.value = "";
-                                MensajeNotif("Usuario o Clave incorrecta","error");
+                                MensajeNotif("Usuario Bloqueado","error");
+                        } else {
+                            mail.value = "";
+                            clave.value = "";
+                            MensajeNotif("Usuario o Clave incorrecta","error");
                         }
                     }
                 };
+                ajax.timeout = 10000;
+                ajax.ontimeout = function () { refresh(); };
                 ajax.send("correo="+btoa(mail.value)+"&clave="+btoa(clave.value)+"&opcion="+op1+"");
         } else { mail.value = ""; OcultarMsg(); MensajeNotif("Ingrese un correo valido","error"); }
     }
@@ -213,6 +219,8 @@ function actualizarCuentaAtras() {
             } else { MensajeNotif("Por favor  cerrar el navegador por seguridad","error"); }
         }
     };
+    ajax.timeout = 5000;
+    ajax.ontimeout = function () { refresh(); };
     ajax.send("opcion="+op5+"");
   }
 
@@ -262,4 +270,5 @@ function btnregister(){
 function btnolvido(){
     //codigo para cuando olvido clave
     window.history.pushState({},"", "/EcuApp/#recuperacion");
+    //MensajeNotif("Cambio de clave exitoso", "correcto");
 }

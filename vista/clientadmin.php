@@ -1,3 +1,4 @@
 <?php 
-    //codigo para presentar reportes desde visualizaciones y logueos hasta ventas y usos
+    //codigo para acceder a la administracion del portal
+    
 ?>

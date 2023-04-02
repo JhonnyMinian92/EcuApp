@@ -212,10 +212,13 @@ function btnveruser() {
 
 function verminimenu(){
     var menu = Componente("idminimenu");
+    var btn = Componente("btnmenu5");
     if(menu.classList.contains('ocultar')){
         AddAtributo(menu,"Class","mostrar");
+        btn.style.transform = "rotate(90deg)";
     }
     else {
         AddAtributo(menu,"Class","ocultar");
+        btn.style.transform = "rotate(0deg)";
     }
 }

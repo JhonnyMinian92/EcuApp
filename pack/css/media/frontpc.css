@@ -15,5 +15,13 @@
     #cjmenu > div:nth-child(4) { width: 45px; height: 45px; left: 10px; }
     #cjmenu > div:nth-child(5) { display: none; }
     #idlbnom { font-size: 28px; }
-    .caja-input > input { width: 270px; }
+    .caja-input > input { width: 290px; height: 37px; }
+    .img-pass { height: 40px; width: 40px; }
+    .img-mail { height: 40px; width: 40px; }
+    .cjlogueo > div:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .desing-error { width: 340px; }
 }

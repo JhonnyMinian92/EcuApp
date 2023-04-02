@@ -119,7 +119,6 @@ function MensajeNotif(texto, tipo){
         SaveObjeto(cdiv, icon);
         var lbtitu = CrearObjeto("div");
         AddAtributo(lbtitu,"Class","color-warnin");
-        ValorTexto(lbtitu, "Error !!!");
         SaveObjeto(cdiv, lbtitu);
     }
     if(tipo == "atencion"){
@@ -129,22 +128,26 @@ function MensajeNotif(texto, tipo){
         SaveObjeto(cdiv, icon);
         var lbtitu = CrearObjeto("div");
         AddAtributo(lbtitu,"Class","color-atencion");
-        ValorTexto(lbtitu, "Atención !!!");
+        SaveObjeto(cdiv, lbtitu);
+    }
+    if(tipo == "correcto"){
+        //icono atencion
+        var icon = CrearObjeto("div");
+        AddAtributo(icon,"Class","img-iconcorrecto");
+        SaveObjeto(cdiv, icon);
+        var lbtitu = CrearObjeto("div");
+        AddAtributo(lbtitu,"Class","color-correcto");
         SaveObjeto(cdiv, lbtitu);
     }
     //dentro de contenido
     var ccon = CrearObjeto("div");
-    if (tipo == "error" || tipo == "atencion") {
-        ValorTexto(ccon, texto);
-    }
+    ValorTexto(ccon, texto);
     SaveObjeto(conten, ccon);
     //dentro de botonera
     var cbot = CrearObjeto("div");
-    if (tipo == "error" || tipo == "atencion") {
-        AddAtributo(cbot, "Class", "btn-aceptar");
-        AddAtributo(cbot, "onclick", "OcultarMsg();");
-        ValorTexto(cbot, "Aceptar");
-    }
+    AddAtributo(cbot, "Class", "btn-aceptar");
+    if(tipo == "correcto"){ AddAtributo(cbot, "Class", "btn-aceptar coloracepto"); }
+    AddAtributo(cbot, "onclick", "OcultarMsg();");
     SaveObjeto(botonera, cbot);
 }
 
@@ -178,6 +181,7 @@ function validarNumeros(event, indice) {
     }
 } 
 
+//funcion para al dar click pasar al siguiente input
 function SaltarFocus(id) {
     var numero = parseInt(id.toString().slice(-1)) + 1;
     //verifica que no exceda de los 6 inputs existentes
