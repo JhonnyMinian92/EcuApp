@@ -1,5 +1,5 @@
 //unica ruta del servicio para Usuarios
-var usuarioservice = "http://localhost/EcuApp/control/UsuarioControl.php";
+var usuarioservice = "http://192.168.1.5/EcuApp/control/UsuarioControl.php";
 // Configuramos la duración de la cuenta regresiva (en segundos)
 var duracion = 180;
 var intervalID;
@@ -88,6 +88,7 @@ function btnlogin() {
 //funcion para cargar pantalla de doble factor
 function doblefactor(){
     window.history.pushState({},"", "/EcuApp/#autenticacion");
+    ValorTexto(contectauten,"");
     //codigo para crear el form de doble factor
     var contenedor = Componente("contectauten");
     //crear caja contenedora
@@ -160,7 +161,6 @@ function IngresarLogin(){
                         var json = eval("("+ajax.responseText+")");
                         OcultarMsg();
                         if(json == true){
-                            ValorTexto(contectauten,"");
                             doblefactor();
                         } else if (json == "-1"){
                                 mail.value = "";

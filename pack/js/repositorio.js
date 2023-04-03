@@ -1,5 +1,5 @@
 //url para los componentes js
-var url = "pack/js/componentes/";
+var url = "http://192.168.1.5/EcuApp/pack/js/componentes/";
 //variable para almacenar ubicacion (login)
 var ubicacion = "";
 
@@ -196,10 +196,17 @@ document.addEventListener("contextmenu", function(e){
     e.preventDefault();
 }, false);
 
+//quitar el zoom del scroll del mouse
+document.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+      event.preventDefault();
+    }
+}, { passive: false });  
+
 //Deshabilitar opciones de teclas
 document.onkeydown = function(e) {
     // impedir la tecla F12
-    if (event.keyCode == 123) {
+    if (e.keyCode == 123) {
       return false;
     }
     // Deshabilitar la visualización de la fuente de la página al presionar Ctrl+U
@@ -209,5 +216,9 @@ document.onkeydown = function(e) {
     // Deshabilitar la visualización presionar Win+U en sistemas Windows o Cmd+U en sistemas macOS
     if ((e.metaKey && e.keyCode == 'U'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
         return false;
+    }
+    //quitar el zoom a nivel de pagina
+    if (e.ctrlKey==true && (e.which == '187' || e.which == '189')) {
+        e.preventDefault();
     }
   }

@@ -88,6 +88,7 @@ function CrearCuerpoHTML() {
     //boton de login
     var li = CrearObjeto("div");
     AddAtributo(li,"Class","li-login");
+    AddAtributo(li,"id","liminilogin");
     AddAtributo(li,"onclick", "btnlogin();");
     SaveObjeto(minimenu,li);
     //boton de servicio
@@ -198,16 +199,6 @@ function ViewNoticias(){
 
 function ViewFooter(){
     
-}
-
-function btnveruser() {
-    window.history.pushState({},"", "/EcuApp/#DatosPersonales");
-    var contenedor = Componente("idarticles");
-    Contenido("idarticles","");
-    //contenido donde se ven los datos del cliente logueado
-    var div = CrearObjeto("div");
-    AddAtributo(div,"id", "flexVerDatos");
-    SaveObjeto(contenedor,div);
 }
 
 function verminimenu(){

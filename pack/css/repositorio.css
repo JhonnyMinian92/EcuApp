@@ -1,14 +1,14 @@
 /* llamar todos los css con mediaquerys */
 /* css general */
-@import url("media/general.css");
+@import url("http://192.168.1.5/EcuApp/pack/css/media/general.css");
 /* css smartphone */
-@import url("media/frontphone.css");
+@import url("http://192.168.1.5/EcuApp/pack/css/media/frontphone.css");
 /* css tablet */
-@import url("media/fronttablet.css");
+@import url("http://192.168.1.5/EcuApp/pack/css/media/fronttablet.css");
 /* css computador */
-@import url("media/frontpc.css");
+@import url("http://192.168.1.5/EcuApp/pack/css/media/frontpc.css");
 /* css tv */
-@import url("media/fronttv.css");
+@import url("http://192.168.1.5/EcuApp/pack/css/media/fronttv.css");
 
 :root {
     /* variables de texto */
@@ -28,6 +28,7 @@
     --texto-msgerror: "Error";
     --texto-msgatencion: "Atención";
     --texto-msgcorrecto: "Correcto";
+    --texto-cuenta: "Cuenta";
 
     /* variable tipo de letra */
     --tipo-letra: Arial, Helvetica, sans-serif;

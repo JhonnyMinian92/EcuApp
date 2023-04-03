@@ -1,11 +1,11 @@
 <?php
 $titulo = "EcuApp";
 
-$dominio = "";
+$dominio = "http://192.168.1.5/EcuApp/pack/";
 //url de la carpeta js
-$urljs = "".$dominio."pack/js/";
+$urljs = "".$dominio."js/";
 //url de la carpeta css
-$urlcss = "".$dominio."pack/css/";
+$urlcss = "".$dominio."css/";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $urlcss = "".$dominio."pack/css/";
         <!-- para definir codificacion -->
         <meta charset="UTF-8">
         <!-- meta para responsive design -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Llamar todos los css -->
         <link rel="stylesheet" type="text/css" href="<?php echo $urlcss ?>repositorio.css" media="screen" />
         <!-- Llamar todos los js -->
@@ -25,7 +25,7 @@ $urlcss = "".$dominio."pack/css/";
         <meta http-equiv="Expires" content="0">
         <!-- meta para no indexar paginas -->
         <meta name="robots" content="noindex">
-        <link rel="canonical" href="http://localhost/EcuApp/">
+        <link rel="canonical" href="http://192.168.1.5/EcuApp/">
         <meta name="robots" content="nofollow">
     </head>
 </html>

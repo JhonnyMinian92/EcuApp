@@ -1,4 +1,11 @@
 /* formatos generales */
+html {
+    /* quitar zoom mobiles */
+    -ms-content-zooming: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    user-zoom: fixed;
+}  
 /* quitar seleccionar al cuerpo */
 body { 
     margin: 0px;
@@ -6,6 +13,14 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /* quitar zoom nivel de pagina*/
+    zoom: reset !important;
+    -moz-transform: scale(1.0) !important;
+    -moz-transform-origin: 0 0 !important;
+    -o-transform: scale(1.0) !important;
+    -o-transform-origin: 0 0 !important;
+    -webkit-transform: scale(1.0) !important;
+    -webkit-transform-origin: 0 0 !important;
 }
 /* selector de mostrar */
 .mostrar { display: block; }
@@ -323,6 +338,8 @@ body {
 .li-servicio::after { content: var(--texto-btn1); }
 .li-informacion::after { content: var(--texto-btn2); }
 .li-contacto::after { content: var(--texto-btn3); }
+
+.li-logueado::after { content: var(--texto-cuenta); }
 
 .info-principal {
     height: auto;
