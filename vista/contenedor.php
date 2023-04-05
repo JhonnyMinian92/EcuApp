@@ -1,7 +1,7 @@
 <?php
 $titulo = "EcuApp";
 
-$dominio = "http://192.168.1.5/EcuApp/pack/";
+$dominio = "pack/";
 //url de la carpeta js
 $urljs = "".$dominio."js/";
 //url de la carpeta css
@@ -25,7 +25,8 @@ $urlcss = "".$dominio."css/";
         <meta http-equiv="Expires" content="0">
         <!-- meta para no indexar paginas -->
         <meta name="robots" content="noindex">
-        <link rel="canonical" href="http://192.168.1.5/EcuApp/">
+        <link rel="canonical" href="https://wwww.ecuapp.com.ec">
         <meta name="robots" content="nofollow">
     </head>
+    <body id="cuerpobody"></body>
 </html>

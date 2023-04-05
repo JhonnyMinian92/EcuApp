@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               
               break;
           case "op4":
-              $data = array("opcion" => $_POST["opcion"], "token" => $_POST["token"]);
+              $data = array("opcion" => $_POST["opcion"], "token" => $_POST["token"], "geolocalizacion" => $_POST["geolocalizacion"]);
               break;
           case "op5":
               $data = array("opcion" => $_POST["opcion"]);

@@ -546,7 +546,6 @@ body {
 
 /* cuadro de doble factor */
 .doble-factor {
-    width: 258px;
     height: auto;
     margin-left: 3px;
     margin-right: 3px;
@@ -602,7 +601,6 @@ body {
 
 .input-digito {
     height: 20px;
-    width: 29px;
     margin: 5px;
     border: none;
     border-bottom: 3px solid var(--color-textplomo);
@@ -686,4 +684,10 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.grecaptcha-badge {
+    right: 0px !important;
+    opacity: 0.3 !important;
+    width: 70px !important;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>EcuApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
     <style>
         body {
             background-color: #f8f8f8;

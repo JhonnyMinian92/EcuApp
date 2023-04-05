@@ -11,7 +11,6 @@ if (sessionStorage.getItem('Statuslogueo') === 'true') {
 function CrearMetaHead() {
 
     var cabecera = document.head;
-
     //crear el titulo de la pagina
     var title = CrearObjeto('title');
     ValorTexto(title,"EcuApp");
@@ -213,3 +212,7 @@ function verminimenu(){
         btn.style.transform = "rotate(0deg)";
     }
 }
+
+setTimeout(function(){
+    DelObjeto("cuerpobody");
+}, 100);

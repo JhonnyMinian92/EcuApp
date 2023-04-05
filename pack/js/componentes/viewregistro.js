@@ -1,5 +1,5 @@
 //unica ruta del servicio para Usuarios
-var usuarioservice = "http://192.168.1.5/EcuApp/control/UsuarioControl.php";
+var usuarioservice = "control/UsuarioControl.php";
 // Configuramos la duración de la cuenta regresiva (en segundos)
 var duracion = 180;
 var intervalID;
@@ -20,6 +20,15 @@ function btnlogin() {
    var div = CrearObjeto("div");
    AddAtributo(div,"Class","centrador");
    SaveObjeto(cuerpo,div);
+   //geolocalizacion
+   var geo = CrearObjeto("a");
+   AddAtributo(geo,"id","lbgeo");
+   AddAtributo(geo,"class","ocultar");
+   SaveObjeto(cuerpo,geo);
+   //componente de recaptcha
+   var script = document.createElement('script');
+   script.src = "https://www.google.com/recaptcha/api.js?render=6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv";
+   SaveObjeto(div,script);
    //crear cuadro de login
    var article = CrearObjeto("article");
    AddAtributo(article,"Class","cjlogueo");
@@ -83,6 +92,20 @@ function btnlogin() {
    AddAtributo(boton,"Class","btn-loguear");
    AddAtributo(boton,"onclick","IngresarLogin();");
    SaveObjeto(div,boton);
+   //input recaptcha
+   var captcha = CrearObjeto("input");
+   AddAtributo(captcha,"type","hidden");
+   AddAtributo(captcha,"id","token-recaptcha");
+   AddAtributo(captcha,"name","token-recaptcha"); 
+   SaveObjeto(cuerpo,captcha);
+   //geolocalizacion
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function showPosition(pos) {
+                document.getElementById("lbgeo").innerHTML = "https://www.google.com.ec/maps/@"+pos.coords.latitude+","+pos.coords.longitude+",19z?hl=es";
+            }
+        );
+    }
 }
 
 //funcion para cargar pantalla de doble factor
@@ -144,6 +167,13 @@ function doblefactor(){
 
 //funcion para logueo inicial
 function IngresarLogin(){
+    //funcion de captcha
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv', {action: 'login'})
+        .then(function(token) {
+            document.getElementById('token-recaptcha').value = token;
+        });
+    });
     //funcion para segundo metodo de autenticacion
     MensajeCargando();
     var mail = Componente("txtmail");
@@ -236,16 +266,18 @@ function ValidarToken(){
     var txtcode6 = Componente("txtdig6");
     //concatenar token
     var codigo = btoa(""+txtcode1.value+txtcode2.value+txtcode3.value+txtcode4.value+txtcode5.value+txtcode6.value+""); 
+    //obtener geolocalizacion
+    geo = Componente("lbgeo");
     //enviar token por ajax
     var ajax = new XMLHttpRequest();
     ajax.open("POST",""+usuarioservice+"",true);
     ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     ajax.onreadystatechange = function(){
         if(ajax.readyState == 4){
+            //ocultar el cargando
+            OcultarMsg();
             var json = eval("("+ajax.responseText+")");
             if(json){ 
-                //ocultar el cargando
-                OcultarMsg();
                 //guardar el token
                 sessionStorage.setItem('token', codigo);
                 sessionStorage.setItem('Statuslogueo',json); 
@@ -257,7 +289,7 @@ function ValidarToken(){
             else { MensajeNotif("El Token es incorrecto","error"); }
         }
     };
-    ajax.send("opcion="+op4+"&token="+codigo);
+    ajax.send("opcion="+op4+"&token="+codigo+"&geolocalizacion="+geo.innerHTML);
 }
 
 //funcion para registro de clientes

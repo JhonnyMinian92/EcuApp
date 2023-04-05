@@ -37,6 +37,8 @@
     /* codigo para modificar login */
     .lb-olvido { margin-bottom: 10px; }
     .desing-error { width: 277px; }
+    .doble-factor { width: 258px; }
+    .input-digito { width: 29px; }
 }
 @media only screen and (min-width: 321px) and (max-width: 415px) {
     #cjmenu { width: 45px; }
@@ -55,6 +57,8 @@
         justify-content: center;
     }
     .desing-error { width: 300px; }
+    .doble-factor { width: 278px; }
+    .input-digito { width: 32px; }
 }
 @media only screen and (min-width: 416px) and (max-width: 520px) {
     #cjmenu { width: 45px; }
@@ -73,4 +77,6 @@
         justify-content: center;
     }
     .desing-error { width: 310px; }
+    .doble-factor { width: 288px; }
+    .input-digito { width: 33px; }
 }
