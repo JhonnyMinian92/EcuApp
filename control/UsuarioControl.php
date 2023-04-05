@@ -6,14 +6,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(isset($_POST["opcion"])){
       //ruta para Servicio de Usuario
       $patch = 'http://192.168.1.5/EcuApi/middle/UsuarioMiddle.php';
+      //inicilizar variable de datos a enviar
       $data = null;
       //decifrar opcion cifrada de javascript
       $opcion = base64_decode($_POST["opcion"]);
       //Escoger las opciones
       switch ($opcion) {
           case "op1":
-              //armar data para login
-              $data = array("opcion" => $_POST["opcion"],"correo" => $_POST["correo"],"clave" => $_POST["clave"]);
+              //token del captcha (clave secreta)
+              $secretKey = "6LdOmlslAAAAAJ6CC6H07g0nNK48H2okrNlz0kxG";
+              $token = $_POST["token"];
+              $action = "login";
+              $ip = $_SERVER["REMOTE_ADDR"];
+              $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$token&action=$action&ip=$ip";
+              $response = file_get_contents($url);
+              $responseData = json_decode($response);
+              if ($responseData->success) {
+                //armar data para login
+                $data = array("opcion" => $_POST["opcion"],"correo" => $_POST["correo"],"clave" => $_POST["clave"]);
+              } else {  echo json_encode("-2"); exit; }
               break;
           case "op2":
               

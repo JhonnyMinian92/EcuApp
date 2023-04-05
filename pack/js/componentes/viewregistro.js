@@ -167,6 +167,8 @@ function doblefactor(){
 
 //funcion para logueo inicial
 function IngresarLogin(){
+    //funcion para segundo metodo de autenticacion
+    MensajeCargando();
     //funcion de captcha
     grecaptcha.ready(function() {
         grecaptcha.execute('6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv', {action: 'login'})
@@ -174,8 +176,6 @@ function IngresarLogin(){
             document.getElementById('token-recaptcha').value = token;
         });
     });
-    //funcion para segundo metodo de autenticacion
-    MensajeCargando();
     var mail = Componente("txtmail");
     var clave = Componente("txtclave");
     if(mail.value == "" || clave.value == ""){
@@ -183,20 +183,33 @@ function IngresarLogin(){
         MensajeNotif("Ingrese todos los campos","atencion");
     } else {
         if(validarEmail(mail.value)){
+                //generar servicio ajax
                 var ajax = new XMLHttpRequest();
                 ajax.open("POST",""+usuarioservice+"",true);
                 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                //obtener token captcha
+                var captcha = document.getElementById('token-recaptcha').value;
+                //enviar data de formulario
                 ajax.onreadystatechange = function(){
                     if(ajax.readyState == 4){
                         var json = eval("("+ajax.responseText+")");
                         OcultarMsg();
-                        if(json == true){
-                            doblefactor();
-                        } else if (json == "-1"){
+                        //siguiente paso de autenticacion
+                        if(json == true){ doblefactor(); } 
+                        //valida si el usuario no tiene bloqueo temporal
+                        if (json == "-1"){
                                 mail.value = "";
                                 clave.value = "";
                                 MensajeNotif("Usuario Bloqueado","error");
-                        } else {
+                        } 
+                        //valida si el paso el captcha por exceso de login
+                        if (json == "-2"){
+                            mail.value = "";
+                            clave.value = "";
+                            MensajeNotif("Error en el Captcha","error");
+                        } 
+                        //presenta mensaje si no existe cliente o anulado
+                        if(json == false) {
                             mail.value = "";
                             clave.value = "";
                             MensajeNotif("Usuario o Clave incorrecta","error");
@@ -205,7 +218,7 @@ function IngresarLogin(){
                 };
                 ajax.timeout = 10000;
                 ajax.ontimeout = function () { refresh(); };
-                ajax.send("correo="+btoa(mail.value)+"&clave="+btoa(clave.value)+"&opcion="+op1+"");
+                ajax.send("correo="+btoa(mail.value)+"&clave="+btoa(clave.value)+"&opcion="+op1+"&token="+captcha);
         } else { mail.value = ""; OcultarMsg(); MensajeNotif("Ingrese un correo valido","error"); }
     }
 }
