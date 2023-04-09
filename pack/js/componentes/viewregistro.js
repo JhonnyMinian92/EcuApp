@@ -338,6 +338,10 @@ function btnolvido(){
     //crear caja de cuerpo
     var cuerpo = CrearObjeto("div");
     SaveObjeto(contenedor,cuerpo);
+    //crear input con diseño
+    var div = CrearObjeto("div");
+    AddAtributo(div,"class","img-mail sobre");
+    SaveObjeto(cuerpo,div);
     var input = CrearObjeto("input");
     AddAtributo(input,"id","txtrecupera");
     AddAtributo(input,"type","email");

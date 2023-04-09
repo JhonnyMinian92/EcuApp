@@ -39,8 +39,8 @@
         height: 40px;
         width: 40px;
     }
-    .lb-recupera { font-size: 17px; }
-    #txtrecupera { width: 260px; }
+    .lb-recupera { font-size: 19px; }
+    #txtrecupera { width: 320px; height: 31px; }
 }
 @media only screen and (min-width: 681px) and (max-width: 750px) {
     #cjmenu { width: 310px; }
@@ -86,8 +86,8 @@
         height: 40px;
         width: 40px;
     }
-    .lb-recupera { font-size: 17px; }
-    #txtrecupera { width: 260px; }
+    .lb-recupera { font-size: 19px; }
+    #txtrecupera { width: 320px; height: 36px; }
 }
 @media only screen and (min-width: 751px) and (max-width: 1200px) {
     #cjmenu { width: 410px; }
@@ -133,6 +133,6 @@
         height: 45px;
         width: 45px;
     }
-    .lb-recupera { font-size: 18px; }
-    #txtrecupera { width: 280px; }
+    .lb-recupera { font-size: 20px; }
+    #txtrecupera { width: 310px; height: 36px;}
 }

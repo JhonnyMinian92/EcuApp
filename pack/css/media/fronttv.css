@@ -42,6 +42,6 @@
         height: 60px;
         width: 60px;
     }
-    .lb-recupera { font-size: 19px; }
-    #txtrecupera { width: 320px; }
+    .lb-recupera { font-size: 21px; }
+    #txtrecupera { width: 340px; height: 43px; }
 }

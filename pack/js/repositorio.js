@@ -203,5 +203,5 @@ document.onkeydown = function(e) {
     //quitar el ctrl+v
     if (e.ctrlKey && (e.key === 'v' || e.key === 'V')) { e.preventDefault(); }
     //Quitar el acceso a consola 
-    if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I')) { e.preventDefault(); }
+    //if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I')) { e.preventDefault(); }
   }

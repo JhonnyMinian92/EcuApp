@@ -306,6 +306,12 @@ body {
     background-image: var(--imagen-mail);
 }
 
+.sobre {
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+}
+
 .img-pass {
     background-position: center;
     background-size: 80%;
@@ -768,11 +774,10 @@ body {
 #txtrecupera {
     position: relative;
     margin-bottom: 10px;
-    height: 30px;
     border: none;
     border-radius: 10px;
     color: var(--color-textplomo);
-    text-indent: 10px;
+    text-indent: 38px;
     font-family: var(--tipo-letra);
     font-size: 15px;
     outline: none;
