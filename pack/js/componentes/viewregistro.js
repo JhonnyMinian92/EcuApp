@@ -206,7 +206,7 @@ function IngresarLogin(){
                         if (json == "-2"){
                             mail.value = "";
                             clave.value = "";
-                            MensajeNotif("Error en el Captcha","error");
+                            MensajeNotif("Error en servicio de Recaptcha","error");
                         } 
                         //presenta mensaje si no existe cliente o anulado
                         if(json == false) {
@@ -258,6 +258,7 @@ function actualizarCuentaAtras() {
             if(json){
                 //codigo para retornar al inicio por no colocar token
                 duracion = 180;
+                sessionStorage.clear();
                 btnlogin();
             } else { MensajeNotif("Por favor  cerrar el navegador por seguridad","error"); }
         }
@@ -309,11 +310,64 @@ function ValidarToken(){
 function btnregister(){
     //codigo para registrar nuevo usuario
     window.history.pushState({},"", "/EcuApp/#registro");
+    //crear componentes para recuperar clave
+    ValorTexto(contectauten,"");
+    var contenedor = Componente("contectauten");
+    //crear contenido de ingreso
+    
 }
 
 //funcion para recuperar clave
 function btnolvido(){
     //codigo para cuando olvido clave
     window.history.pushState({},"", "/EcuApp/#recuperacion");
-    //MensajeNotif("Cambio de clave exitoso", "correcto");
+    //crear componentes para recuperar clave
+    ValorTexto(contectauten,"");
+    var contenedor = Componente("contectauten");
+    AddAtributo(contectauten,"class","cjrecupera");
+    //crear diseño
+    var cabeza = CrearObjeto("div");
+    SaveObjeto(contenedor,cabeza);
+    //contenido de la cabecera
+    var divimg = CrearObjeto("div");
+    AddAtributo(divimg,"class","img-recupera");
+    SaveObjeto(cabeza,divimg);
+    var div = CrearObjeto("div");
+    AddAtributo(div,"class","lb-recupera");
+    SaveObjeto(cabeza,div);
+    //crear caja de cuerpo
+    var cuerpo = CrearObjeto("div");
+    SaveObjeto(contenedor,cuerpo);
+    var input = CrearObjeto("input");
+    AddAtributo(input,"id","txtrecupera");
+    AddAtributo(input,"type","email");
+    AddAtributo(input,"Placeholder","Ingrese su correo electrónico");
+    SaveObjeto(cuerpo,input);
+    //crear caja de boton
+    var botonera = CrearObjeto("div");
+    SaveObjeto(contenedor,botonera);
+    //crear boton enviar mail
+    var div = CrearObjeto("div");
+    AddAtributo(div,"class","btn-sendmail");
+    SaveObjeto(botonera,div);
+    //crear pie de componente
+    var pie = CrearObjeto("div");
+    SaveObjeto(contenedor,pie);
+    //crear boton de retorno
+    var div = CrearObjeto("div");
+    AddAtributo(div,"class","btn-regresar");
+    AddAtributo(div,"onclick","regresar();");
+    SaveObjeto(pie,div);
+}
+
+function regresar(){
+    var url = window.location.href;
+    if (url.indexOf("recuperacion") !== -1) {
+        var bodyElement = document.querySelector("body");
+        bodyElement.innerHTML = "";
+        var section = CrearObjeto('section');
+        AddAtributo(section,'id', 'cuerpogeneral');
+        bodyElement.appendChild(section);
+        btnlogin();
+    }
 }

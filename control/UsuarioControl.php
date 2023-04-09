@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Código que se ejecuta si la solicitud es POST
   if(isset($_POST["opcion"])){
       //ruta para Servicio de Usuario
-      $patch = 'http://192.168.1.5/EcuApi/middle/UsuarioMiddle.php';
+      $patch = 'http://localhost/EcuApi/middle/UsuarioMiddle.php';
       //inicilizar variable de datos a enviar
       $data = null;
       //decifrar opcion cifrada de javascript
