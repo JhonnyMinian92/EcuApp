@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(isset($_POST["opcion"])){
       //ruta para Servicio de Usuario
       $patch = 'http://localhost/EcuApi/middle/UsuarioMiddle.php';
+      //obtener la clave de autorizacion
+      $auth = ObtenerAutorizacion();
       //inicilizar variable de datos a enviar
       $data = null;
       //decifrar opcion cifrada de javascript
@@ -23,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               $responseData = json_decode($response);
               if ($responseData->success) {
                 //armar data para login
-                $data = array("opcion" => $_POST["opcion"],"correo" => $_POST["correo"],"clave" => $_POST["clave"]);
-              } else {  echo json_encode("-2"); exit; }
+                $data = array("opcion" => $_POST["opcion"],"correo" => $_POST["correo"],"clave" => $_POST["clave"],"auth"=>$auth);
+              } else { echo json_encode("-2"); exit; }
               break;
           case "op2":
               
@@ -33,10 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               
               break;
           case "op4":
-              $data = array("opcion" => $_POST["opcion"], "token" => $_POST["token"], "geolocalizacion" => $_POST["geolocalizacion"]);
+              //armar la data para autenticar y guardar login
+              $data = array("opcion" => $_POST["opcion"], "token" => $_POST["token"], "geolocalizacion" => $_POST["geolocalizacion"],"auth"=>$auth);
               break;
           case "op5":
-              $data = array("opcion" => $_POST["opcion"]);
+              //cerrar sesion
+              $data = array("opcion" => $_POST["opcion"],"auth"=>$auth);
               break;
           default:
               include("../vista/404.php");
@@ -55,19 +59,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
         CURLOPT_POSTFIELDS => $data,
-        CURLOPT_HTTPHEADER => array('Cookie: PHPSESSID=da9odhh2m0olvl5cm065f1jv14'),));
+        CURLOPT_HTTPHEADER => array(
+          'Authorization: Basic M0N1NHBwU2VydjFjMzpSM3N0M2N1NHBw',
+          'Cookie: PHPSESSID=foo23eob2gvms47m1io8ru9re9'),));
       $response = curl_exec($curl);
       curl_close($curl);
       echo $response;
-
-    } 
-    else {
+    } else {
             include("../vista/405.php");
             exit;
           }
 } else {
   include("../vista/404.php");
   exit;
+}
+
+//obtener codigo para conectar front con back
+function ObtenerAutorizacion(){
+    $curl = curl_init();
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://localhost/EcuApi/microservicios/Soporte/validar.php',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_HTTPHEADER => array(
+      'Authorization: Basic M0N1NHBwU2VydjFjMzpSM3N0M2N1NHBw'
+    ),
+  ));
+  $response = curl_exec($curl);
+  curl_close($curl);
+  return $response;
 }
 
 ?>

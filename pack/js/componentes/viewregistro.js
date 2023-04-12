@@ -259,7 +259,7 @@ function actualizarCuentaAtras() {
                 //codigo para retornar al inicio por no colocar token
                 duracion = 180;
                 sessionStorage.clear();
-                btnlogin();
+                VolveraLogin();
             } else { MensajeNotif("Por favor  cerrar el navegador por seguridad","error"); }
         }
     };
@@ -314,7 +314,132 @@ function btnregister(){
     ValorTexto(contectauten,"");
     var contenedor = Componente("contectauten");
     //crear contenido de ingreso
-    
+    var div = CrearObjeto("div");
+    AddAtributo(div,"class","htmlfor")
+    SaveObjeto(contenedor,div);
+    //crear cabecera
+    var cabeza = CrearObjeto("div");
+    SaveObjeto(div,cabeza);
+    var titulo = CrearObjeto("div");
+    AddAtributo(titulo,"class","titu-ingreso");
+    SaveObjeto(cabeza,titulo);
+    //crear cuerpo
+    var cuerpo = CrearObjeto("div");
+    AddAtributo(cuerpo,"class","bodyform");
+    SaveObjeto(div,cuerpo);
+    //crear div para formulario
+    var input = CrearObjeto("input");
+    AddAtributo(input,"Placeholder","Cedula Ciudadana");
+    AddAtributo(input,"oninput","soloNumeros(event);");
+    AddAtributo(input,"type","text");
+    AddAtributo(input,"maxlength","10");
+    SaveObjeto(cuerpo,input);
+
+    //input compuesto de huella dactilar
+    var huella = CrearObjeto("div");
+    AddAtributo(huella,"class","relative");
+    SaveObjeto(cuerpo,huella);
+    input = CrearObjeto("input");
+    AddAtributo(input,"Placeholder","Huella dactilar");
+    AddAtributo(input,"class","input-huella");
+    AddAtributo(input,"oninput","convertirMayusculas(this);");
+    AddAtributo(input,"type","text");
+    AddAtributo(input,"maxlength","10");
+    SaveObjeto(huella,input);
+    var imgdiv = CrearObjeto("div");
+    AddAtributo(imgdiv,"class","img-info");
+    AddAtributo(imgdiv,"onclick","MostrarInfoHuella();");
+    SaveObjeto(huella,imgdiv);
+
+    //input compuesto de numero celular
+    var cjcelular = CrearObjeto("div");
+    AddAtributo(cjcelular,"class","esflex");
+    SaveObjeto(cuerpo,cjcelular);
+    var divnum = CrearObjeto("div");
+    AddAtributo(divnum,"class","lbnumec");
+    SaveObjeto(cjcelular,divnum);
+    input = CrearObjeto("input");
+    AddAtributo(input,"Placeholder","Numero celular");
+    AddAtributo(input,"class","input-numop");
+    AddAtributo(input,"oninput","soloNumeros(event);");
+    AddAtributo(input,"type","text");
+    AddAtributo(input,"maxlength","10");
+    SaveObjeto(cjcelular,input);
+
+    //input de correo electronico
+    input = CrearObjeto("input");
+    AddAtributo(input,"Placeholder","Correo electrónico");
+    AddAtributo(input,"maxlength","200");
+    AddAtributo(input,"type","email");
+    SaveObjeto(cuerpo,input);
+
+    //seccion de ubicacion
+    //Agregar los datos a provincia
+    var select = CrearObjeto("select");
+    AddAtributo(select,"class","cmbx");
+    AddAtributo(select,"onchange","CargarCiudades(this.value);");
+    SaveObjeto(cuerpo,select);
+    CargarProvincia(select);
+
+    select = CrearObjeto("select");
+    AddAtributo(select,"class","cmbx");
+    AddAtributo(select,"id","cmbCiudad");
+    SaveObjeto(cuerpo,select);
+    var option = CrearObjeto('option');
+    option.value = 0;
+    ValorTexto(option, "Seleccione una ciudad");
+    SaveObjeto(select,option);
+
+    //input para la direccion
+    input = CrearObjeto("input");
+    AddAtributo(input,"Placeholder","Direccion domiciliaria");
+    AddAtributo(input,"maxlength","200");
+    SaveObjeto(cuerpo,input);
+
+    //seccion de contraseña compuesta
+    var clave = CrearObjeto("div");
+    AddAtributo(clave,"class","relative");
+    SaveObjeto(cuerpo,clave);
+    input = CrearObjeto("input");
+    AddAtributo(input,"id","pass1");
+    AddAtributo(input,"Placeholder","Ingrese una contraseña");
+    AddAtributo(input,"class","input-huella");
+    AddAtributo(input,"maxlength","20");
+    AddAtributo(input,"type","password");
+    SaveObjeto(clave,input);
+    var ojo = CrearObjeto("div");
+    AddAtributo(ojo,"class","tipo-ojo ojo-cerrado");
+    AddAtributo(ojo,"onclick","CambiardeOjos(this,'pass1');");
+    SaveObjeto(clave,ojo);
+
+    //seccion de contraseña repetida
+    var clave = CrearObjeto("div");
+    AddAtributo(clave,"class","relative");
+    SaveObjeto(cuerpo,clave);
+    input = CrearObjeto("input");
+    AddAtributo(input,"id","pass2");
+    AddAtributo(input,"Placeholder","Repita contraseña");
+    AddAtributo(input,"class","input-huella");
+    AddAtributo(input,"maxlength","20");
+    AddAtributo(input,"type","password");
+    SaveObjeto(clave,input);
+    var ojo = CrearObjeto("div");
+    AddAtributo(ojo,"class","tipo-ojo ojo-cerrado");
+    AddAtributo(ojo,"onclick","CambiardeOjos(this,'pass2');");
+    SaveObjeto(clave,ojo);
+
+    //crear botonera
+    var cjboton = CrearObjeto("div");
+    AddAtributo(cjboton,"class","dosbtn");
+    SaveObjeto(div,cjboton);
+    //botones
+    var btn = CrearObjeto("div");
+    AddAtributo(btn,"class","btn-crear");
+    SaveObjeto(cjboton,btn);
+    btn = CrearObjeto("div");
+    AddAtributo(btn,"class","btn-cancelar");
+    AddAtributo(btn,"onclick","VolveraLogin();")
+    SaveObjeto(cjboton,btn);
 }
 
 //funcion para recuperar clave
@@ -329,9 +454,6 @@ function btnolvido(){
     var cabeza = CrearObjeto("div");
     SaveObjeto(contenedor,cabeza);
     //contenido de la cabecera
-    var divimg = CrearObjeto("div");
-    AddAtributo(divimg,"class","img-recupera");
-    SaveObjeto(cabeza,divimg);
     var div = CrearObjeto("div");
     AddAtributo(div,"class","lb-recupera");
     SaveObjeto(cabeza,div);
@@ -345,6 +467,7 @@ function btnolvido(){
     var input = CrearObjeto("input");
     AddAtributo(input,"id","txtrecupera");
     AddAtributo(input,"type","email");
+    AddAtributo(input,"maxlength","200");
     AddAtributo(input,"Placeholder","Ingrese su correo electrónico");
     SaveObjeto(cuerpo,input);
     //crear caja de boton
@@ -360,18 +483,197 @@ function btnolvido(){
     //crear boton de retorno
     var div = CrearObjeto("div");
     AddAtributo(div,"class","btn-regresar");
-    AddAtributo(div,"onclick","regresar();");
+    AddAtributo(div,"onclick","VolveraLogin();");
     SaveObjeto(pie,div);
 }
 
-function regresar(){
-    var url = window.location.href;
-    if (url.indexOf("recuperacion") !== -1) {
-        var bodyElement = document.querySelector("body");
-        bodyElement.innerHTML = "";
-        var section = CrearObjeto('section');
-        AddAtributo(section,'id', 'cuerpogeneral');
-        bodyElement.appendChild(section);
-        btnlogin();
+function VolveraLogin(){
+    var bodyElement = document.querySelector("body");
+    bodyElement.innerHTML = "";
+    var section = CrearObjeto('section');
+    AddAtributo(section,'id', 'cuerpogeneral');
+    bodyElement.appendChild(section);
+    btnlogin();
+}
+
+function CambiardeOjos(ojo, input){
+    if (ojo.classList.contains('ojo-abierto')) {
+        ojo.classList.remove('ojo-abierto');
+        ojo.classList.add('ojo-cerrado');
+        document.getElementById(input).type = "password";
+    } else {
+        ojo.classList.remove('ojo-cerrado');
+        ojo.classList.add('ojo-abierto');
+        document.getElementById(input).type = "text";
     }
+}
+
+function CargarProvincia(select){
+    //listado de provincias
+    const provincias = [
+        'Azuay',
+        'Bolívar',
+        'Cañar',
+        'Carchi',
+        'Chimborazo',
+        'Cotopaxi',
+        'El Oro',
+        'Esmeraldas',
+        'Galápagos',
+        'Guayas',
+        'Imbabura',
+        'Loja',
+        'Los Ríos',
+        'Manabí',
+        'Morona Santiago',
+        'Napo',
+        'Orellana',
+        'Pastaza',
+        'Pichincha',
+        'Santa Elena',
+        'Santo Domingo de los Tsáchilas',
+        'Sucumbíos',
+        'Tungurahua',
+        'Zamora Chinchipe'
+      ];   
+      //crear opciones de provincias
+      const option = CrearObjeto('option');
+      option.value = 0;
+      ValorTexto(option, "Seleccione una provincia");
+      SaveObjeto(select,option);
+      //recorrer array
+      provincias.forEach((provincia, index) => {
+        const option = CrearObjeto('option');
+        option.value = index+1;
+        ValorTexto(option,provincia);
+        SaveObjeto(select,option);
+      }); 
+}
+
+function CargarCiudades(index){
+    const listaCiudades = [
+        { provincia: "", ciudades: ["Seleccione una ciudad"] },
+        {
+            provincia: "Azuay",
+            ciudades: ["Cuenca", "Girón", "Gualaceo", "Paute", "Sígsig"]
+        },
+        {
+            provincia: "Bolívar",
+            ciudades: ["Guaranda", "Chillanes", "Chimbo", "Echeandía", "San Miguel"]
+          },
+          {
+            provincia: "Cañar",
+            ciudades: ["Azogues", "Biblián", "Cañar", "La Troncal", "El Tambo"]
+          },
+          {
+            provincia: "Carchi",
+            ciudades: ["Tulcán", "Bolívar", "Espejo", "Mira", "Montúfar"]
+          },
+          {
+            provincia: "Chimborazo",
+            ciudades: ["Riobamba", "Alausí", "Colta", "Cumandá", "Guamote"]
+          },
+          {
+            provincia: "Cotopaxi",
+            ciudades: ["Latacunga", "La Maná", "Pangua", "Pujilí", "Salcedo"]
+          },
+          {
+            provincia: "El Oro",
+            ciudades: ["Machala", "Arenillas", "Atahualpa", "Huaquillas", "Zaruma"]
+          },
+          {
+            provincia: "Esmeraldas",
+            ciudades: ["Esmeraldas", "Eloy Alfaro", "Muisne", "Quinindé", "San Lorenzo"]
+          },
+          {
+            provincia: "Galápagos",
+            ciudades: ["Puerto Baquerizo Moreno", "Isabela", "Santa Cruz", "San Cristóbal"]
+          },
+          {
+            provincia: "Guayas",
+            ciudades: ["Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes"]
+          },
+          {
+            provincia: "Imbabura",
+            ciudades: ["Ibarra", "Antonio Ante", "Cotacachi", "Otavalo", "Pimampiro"]
+          },
+          {
+            provincia: "Loja",
+            ciudades: ["Loja", "Calvas", "Catamayo", "Macará", "Paltas"]
+          },
+          {
+            provincia: "Los Ríos",
+            ciudades: ["Babahoyo", "Baba", "Montalvo", "Puebloviejo", "Quevedo"]
+          },
+          {
+            provincia: "Manabí",
+            ciudades: ["Portoviejo", "Bolívar", "Chone", "El Carmen", "Flavio Alfaro"]
+          },
+          {
+            provincia: "Morona Santiago",
+            ciudades: ["Macas", "Gualaquiza", "Huamboya", "Limón Indanza", "Logroño"]
+          },
+          {
+            provincia: "Napo",
+            ciudades: ["Tena", "Archidona", "El Chaco", "Quijos"]
+          },
+          {
+            provincia: "Orellana",
+            ciudades: ["Francisco de Orellana", "Aguarico", "La Joya de los Sachas", "Lago Agrio"]
+          },
+          {
+            provincia: "Pastaza",
+            ciudades: ['Puyo', 'Arajuno', 'Mera', 'Tarqui']
+          },
+          {
+            provincia: "Pichincha",
+            ciudades: ['Quito', 'Cayambe', 'Mejía', 'Pedro Moncayo', 'Rumiñahui', 'San Miguel de los Bancos']
+          },
+          {
+            provincia: "Santa Elena",
+            ciudades: ['Santa Elena', 'La Libertad', 'Salinas']
+          },
+          {
+            provincia: "Santo Domingo de los Tsáchilas",
+            ciudades: ['Santo Domingo', 'La Concordia']
+          },
+          {
+            provincia: "Sucumbíos",
+            ciudades: ['Nueva Loja', 'Cascales', 'Cuyabeno', 'Gonzalo Pizarro', 'Lago Agrio', 'Shushufindi', 'Sucumbíos']
+          },
+          {
+            provincia: "Tungurahua",
+            ciudades: ['Ambato', 'Baños de Agua Santa', 'Cevallos', 'Mocha', 'Patate', 'Pelileo', 'Píllaro', 'Quero']
+          },
+          {
+            provincia: "Zamora Chinchipe",
+            ciudades: ['Zamora', 'Centinela del Cóndor', 'Chinchipe', 'Nangaritza', 'Palanda', 'Paquisha', 'Yacuambi', 'Yantzaza']
+          }
+    ];
+    //seleccionar la lista de ciudades
+    const listaciudad = listaCiudades[index].ciudades;
+    var select = Componente("cmbCiudad");
+    Contenido("cmbCiudad","");
+    listaciudad.forEach((ciudad, i) => {
+        const option = CrearObjeto('option');
+        option.value = i+1;
+        ValorTexto(option,ciudad);
+        SaveObjeto(select,option);
+    });
+}
+
+function MostrarInfoHuella(){
+    MostrarInfo();
+    var contenido = Componente("cajainfo");
+    //crear contenido dentro
+    var cuerpo = CrearObjeto("div");
+    AddAtributo(cuerpo,"class","img-infohuella");
+    SaveObjeto(contenido,cuerpo);
+    var botonera = CrearObjeto("div");
+    AddAtributo(botonera,"class","esflex");
+    SaveObjeto(contenido,botonera);
+    var cbot = CrearObjeto("div");
+    AddAtributo(cbot, "Class", "btn-aceptar coloracepto");
+    AddAtributo(cbot, "onclick", "OcultarMsg();");
+    SaveObjeto(botonera, cbot);
 }

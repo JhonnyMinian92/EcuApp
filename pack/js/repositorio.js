@@ -142,6 +142,24 @@ function MensajeNotif(texto, tipo){
     SaveObjeto(botonera, cbot);
 }
 
+//funcion para mensaje de mostrar info
+function MostrarInfo(){
+    //crear capa transparente
+    var capa = CrearObjeto("section");
+    AddAtributo(capa, "Class", "capa-transpa");
+    AddAtributo(capa, "id", "idcapa");
+    SaveObjeto(cuerpogeneral, capa);
+    //crear cuadro de mensaje
+    var cuadro = CrearObjeto("article");
+    AddAtributo(cuadro, "Class", "cuadro-error");
+    AddAtributo(cuadro, "id", "idcuadromsg");
+    SaveObjeto(cuerpogeneral, cuadro);
+    //mostrar cargando en pantalla
+    var div = CrearObjeto("div");
+    AddAtributo(div,"id","cajainfo");
+    SaveObjeto(cuadro,div);
+}
+
 //funcion para ocultar mensajes de error
 function OcultarMsg(){
     DelObjeto("idcapa");
@@ -154,7 +172,20 @@ function validarEmail(correo) {
     if (regex.test(correo)) { return true; } else { return false; }
 }
 
-//funcionpara validar solo ingreso de numeros
+//funcion para validar numeros en input
+function soloNumeros(e){
+    // Expresión regular que verifica que sólo se ingresen números
+    var regex = /^[0-9]+$/;
+    // Si el valor ingresado no coincide con la expresión regular, se elimina
+    if (!regex.test(e.target.value)) { e.target.value = e.target.value.replace(/[^0-9]/g, ''); }
+}
+
+//convertir en mayuscula
+function convertirMayusculas(input) {
+    input.value = input.value.toUpperCase();
+}  
+
+//funcionpara validar numeros y saltar al siguiente
 function validarNumeros(event, indice) {
     // Obtener el código de la tecla presionada
     var codigoTecla = event.which || event.keyCode;

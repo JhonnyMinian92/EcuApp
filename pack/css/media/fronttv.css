@@ -26,7 +26,7 @@
     .desing-error { width: 370px; }
     .doble-factor { width: 338px; }
     .input-digito { width: 38px; }
-    .cjlogueo {
+    .cjlogueo, .cjrecupera {
         margin: 5px;
         padding: 5px;
         border-radius: 15px 15px 15px 15px;

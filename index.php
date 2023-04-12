@@ -1,8 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-// URL del archivo que valida la conexión
-$url = 'http://localhost/EcuApi/microservicios/Soporte/validar_conexion.php';
 // Hacer una solicitud HTTP GET al archivo de validación
+$url = 'http://localhost/EcuApi/$2y$10$Zszrx9ki9L1aWluAAFnwt.V.6SQB.Tc4z3CiuLvngM4VWtPdQUOx..php';
 $response = file_get_contents($url);
 // Mostrar la respuesta del archivo de validación
 if ($response === 'true') {

@@ -23,7 +23,7 @@
     .desing-error { width: 320px; }
     .doble-factor { width: 298px; }
     .input-digito { width: 33px; }
-    .cjlogueo {
+    .cjlogueo, .cjrecupera {
         margin: 5px;
         padding: 5px;
         border-radius: 15px 15px 15px 15px;
@@ -70,7 +70,7 @@
     .desing-error { width: 320px; }
     .doble-factor { width: 298px; }
     .input-digito { width: 35px; }
-    .cjlogueo {
+    .cjlogueo, .cjrecupera {
         margin: 5px;
         padding: 5px;
         border-radius: 15px 15px 15px 15px;
@@ -117,7 +117,7 @@
     .desing-error { width: 330px; }
     .doble-factor { width: 318px; }
     .input-digito { width: 36px; }
-    .cjlogueo {
+    .cjlogueo, .cjrecupera {
         margin: 5px;
         padding: 5px;
         border-radius: 15px 15px 15px 15px;
