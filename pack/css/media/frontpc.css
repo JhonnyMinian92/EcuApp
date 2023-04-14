@@ -44,4 +44,7 @@
     }
     .lb-recupera { font-size: 20px; }
     #txtrecupera { width: 320px; height: 38px; }
+    .htmlfor { width: 360px !important; }
+    #cajainfo { width: 400px; }
+    .img-infohuella{ height: 235px; }
 }

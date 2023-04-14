@@ -778,7 +778,7 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
     width: 100%;
-    height: 28px;
+    height: 30px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -805,20 +805,26 @@ body {
     content: var(--texto-formingreso);
 }
 
-.htmlfor {
-    display: block !important;
-    width: 260px !important;
-}
+.htmlfor { display: block !important; }
 
 .cmbx {
-    height: 32px;
+    height: 40px;
     margin-bottom: 5px;
-    width: 102%;
+    width: 101%;
     margin-top: 5px;
     border-radius: 5px;
     outline: none;
     border: none;
+    padding: 10px;
+    text-indent: 10px;
+    font-family: var(--tipo-letra);
+    color: var(--color-textplomo);
+    font-size: 16px;
+    appearance: none;
+    cursor: pointer;
 }
+.cmbx > option:checked { background-color: var(--color-primario); color: var(--color-textblanco); }
+.cmbx > option:hover { background-color: var(--color-prinhover); }
 
 .dosbtn {
     margin-top: 15px;
@@ -891,7 +897,7 @@ body {
 .input-numop {
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 28px;
+    height: 30px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -922,8 +928,8 @@ body {
 .ojo-cerrado { background-image: var(--imagen-ojocerrado); }
 
 #cajainfo {
-    width: 275px;
     margin: 10px;
+    padding-top: 15px;
     height: auto;
     opacity: 1;
     background-color: var(--color-textblanco);
@@ -938,5 +944,4 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 180px;
 }

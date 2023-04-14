@@ -41,6 +41,9 @@
     }
     .lb-recupera { font-size: 19px; }
     #txtrecupera { width: 320px; height: 31px; }
+    .htmlfor { width: 330px !important; }
+    #cajainfo { width: 350px; }
+    .img-infohuella{ height: 190px; }
 }
 @media only screen and (min-width: 681px) and (max-width: 750px) {
     #cjmenu { width: 310px; }
@@ -88,6 +91,9 @@
     }
     .lb-recupera { font-size: 19px; }
     #txtrecupera { width: 320px; height: 36px; }
+    .htmlfor { width: 340px !important; }
+    #cajainfo { width: 370px; }
+    .img-infohuella{ height: 200px; }
 }
 @media only screen and (min-width: 751px) and (max-width: 1200px) {
     #cjmenu { width: 410px; }
@@ -135,4 +141,7 @@
     }
     .lb-recupera { font-size: 20px; }
     #txtrecupera { width: 310px; height: 36px;}
+    .htmlfor { width: 350px !important; }
+    #cajainfo { width: 390px; }
+    .img-infohuella{ height: 220px; }
 }

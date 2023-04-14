@@ -106,6 +106,16 @@ function btnlogin() {
             }
         );
     }
+    //obtener la data de captcha
+    setTimeout(function() {
+      //funcion de captcha
+      grecaptcha.ready(function() {
+          grecaptcha.execute('6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv', {action: 'login'})
+          .then(function(token) {
+              document.getElementById('token-recaptcha').value = token;
+          });
+      });
+    }, 100);
 }
 
 //funcion para cargar pantalla de doble factor
@@ -169,13 +179,6 @@ function doblefactor(){
 function IngresarLogin(){
     //funcion para segundo metodo de autenticacion
     MensajeCargando();
-    //funcion de captcha
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv', {action: 'login'})
-        .then(function(token) {
-            document.getElementById('token-recaptcha').value = token;
-        });
-    });
     var mail = Componente("txtmail");
     var clave = Componente("txtclave");
     if(mail.value == "" || clave.value == ""){

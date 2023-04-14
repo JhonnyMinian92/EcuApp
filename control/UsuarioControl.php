@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function ObtenerAutorizacion(){
     $curl = curl_init();
   curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://localhost/EcuApi/microservicios/Soporte/validar.php',
+    CURLOPT_URL => 'http://localhost/EcuApi/microservicios/Soporte/conectorPhp.php',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,

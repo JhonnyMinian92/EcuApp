@@ -46,6 +46,9 @@
     }
     .lb-recupera { font-size: 15px; }
     #txtrecupera { width: 230px; height: 31px; }
+    .htmlfor { width: 260px !important; }
+    #cajainfo { width: 275px; }
+    .img-infohuella{ height: 170px; }
 }
 @media only screen and (min-width: 321px) and (max-width: 415px) {
     #cjmenu { width: 45px; }
@@ -72,6 +75,9 @@
     }
     .lb-recupera { font-size: 18px; }
     #txtrecupera { width: 280px; height: 31px; }
+    .htmlfor { width: 300px !important; }
+    #cajainfo { width: 300px; }
+    .img-infohuella{ height: 180px; }
 }
 @media only screen and (min-width: 416px) and (max-width: 520px) {
     #cjmenu { width: 45px; }
@@ -110,4 +116,7 @@
     }
     .lb-recupera { font-size: 19px; }
     #txtrecupera { width: 320px; height: 31px; }
+    .htmlfor { width: 320px !important; }
+    #cajainfo { width: 325px; }
+    .img-infohuella{ height: 190px; }
 }
