@@ -223,6 +223,8 @@ document.addEventListener('wheel', function(event) { if (event.ctrlKey) { event.
 document.onkeydown = function(e) {
     // impedir la tecla F12
     if (e.key === "F12") { return false; }
+    // impedir la tecla F5
+    //if (e.key === "F5") { return false; }
     // Deshabilitar la visualización de la fuente de la página al presionar Ctrl+U
     if (e.ctrlKey && e.key === 'u') { return false; }
     // Deshabilitar la visualización presionar Win+U en sistemas Windows o Cmd+U en sistemas macOS

@@ -29,6 +29,14 @@ function btnlogin() {
    var script = document.createElement('script');
    script.src = "https://www.google.com/recaptcha/api.js?render=6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv";
    SaveObjeto(div,script);
+   //mensaje de cargando por demora de recaptcha
+   MensajeCargando();
+   //input recaptcha
+   var captcha = CrearObjeto("input");
+   AddAtributo(captcha,"type","hidden");
+   AddAtributo(captcha,"id","token-recaptcha");
+   AddAtributo(captcha,"name","token-recaptcha"); 
+   SaveObjeto(cuerpo,captcha);
    //crear cuadro de login
    var article = CrearObjeto("article");
    AddAtributo(article,"Class","cjlogueo");
@@ -92,12 +100,6 @@ function btnlogin() {
    AddAtributo(boton,"Class","btn-loguear");
    AddAtributo(boton,"onclick","IngresarLogin();");
    SaveObjeto(div,boton);
-   //input recaptcha
-   var captcha = CrearObjeto("input");
-   AddAtributo(captcha,"type","hidden");
-   AddAtributo(captcha,"id","token-recaptcha");
-   AddAtributo(captcha,"name","token-recaptcha"); 
-   SaveObjeto(cuerpo,captcha);
    //geolocalizacion
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -106,16 +108,17 @@ function btnlogin() {
             }
         );
     }
-    //obtener la data de captcha
+    //obtener la data de captcha, espera hasta que DOM construya
     setTimeout(function() {
       //funcion de captcha
       grecaptcha.ready(function() {
           grecaptcha.execute('6LdOmlslAAAAAE-iMmmfmbh0Y2ElD5Na35URaUiv', {action: 'login'})
           .then(function(token) {
               document.getElementById('token-recaptcha').value = token;
+              OcultarMsg();
           });
       });
-    }, 100);
+    }, 200);
 }
 
 //funcion para cargar pantalla de doble factor
@@ -479,6 +482,7 @@ function btnolvido(){
     //crear boton enviar mail
     var div = CrearObjeto("div");
     AddAtributo(div,"class","btn-sendmail");
+    AddAtributo(div,"onclick","EnviarMailOlvido();");
     SaveObjeto(botonera,div);
     //crear pie de componente
     var pie = CrearObjeto("div");
@@ -488,6 +492,51 @@ function btnolvido(){
     AddAtributo(div,"class","btn-regresar");
     AddAtributo(div,"onclick","VolveraLogin();");
     SaveObjeto(pie,div);
+}
+
+function EnviarMailOlvido(){
+    MensajeCargando();
+    //obtener el mail
+    var mail = Componente("txtrecupera");
+    if(mail.value == ""){
+      OcultarMsg();
+      MensajeNotif("Ingrese todos los campos","atencion");
+    } else {
+        if(validarEmail(mail.value)){
+            //enviar correo servicio ajax
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST",""+usuarioservice+"",true);
+            ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            //obtener token captcha
+            var captcha = document.getElementById('token-recaptcha').value;
+            //enviar correo de recuperacion
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState == 4){
+                    var json = eval("("+ajax.responseText+")");
+                    OcultarMsg();
+                    if(json == true){ 
+                      //presentar mensaje de enviado correctamente
+                      MensajeNotif("Correo enviado exitosamente","correcto");
+                      mail.value = "";
+                     } 
+                    //valida si el usuario no tiene bloqueo temporal
+                    if (json == "-1"){
+                            mail.value = "";
+                            MensajeNotif("El correo indicado no existe","error");
+                            setTimeout(refresh, 500);
+                    } 
+                    //presenta mensaje si no existe cliente o anulado
+                    if(json == false) {
+                        mail.value = "";
+                        MensajeNotif("Error al enviar correo","error");
+                    }
+                }
+            };
+            ajax.timeout = 10000;
+            ajax.ontimeout = function () { refresh(); };
+            ajax.send("correo="+btoa(mail.value)+"&opcion="+op3+"&token="+captcha);
+        } else { mail.value = ""; OcultarMsg(); MensajeNotif("Ingrese un correo valido","error"); }
+      }
 }
 
 function VolveraLogin(){

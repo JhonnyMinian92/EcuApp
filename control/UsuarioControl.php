@@ -32,7 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               
               break;
           case "op3":
-              
+              //recuperacion de contraseña
+              $secretKey = "6LdOmlslAAAAAJ6CC6H07g0nNK48H2okrNlz0kxG";
+              $token = $_POST["token"];
+              $action = "login";
+              $ip = $_SERVER["REMOTE_ADDR"];
+              $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$token&action=$action&ip=$ip";
+              $response = file_get_contents($url);
+              $responseData = json_decode($response);
+              if ($responseData->success) {
+                //armar data para login
+                $data = array("opcion" => $_POST["opcion"],"correo" => $_POST["correo"],"auth"=>$auth);
+              } else { echo json_encode("-2"); exit; }
               break;
           case "op4":
               //armar la data para autenticar y guardar login
