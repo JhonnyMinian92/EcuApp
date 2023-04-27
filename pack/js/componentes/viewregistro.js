@@ -118,7 +118,7 @@ function btnlogin() {
               OcultarMsg();
           });
       });
-    }, 200);
+    }, 1000);
 }
 
 //funcion para cargar pantalla de doble factor
@@ -212,7 +212,7 @@ function IngresarLogin(){
                         if (json == "-2"){
                             mail.value = "";
                             clave.value = "";
-                            MensajeNotif("Error en servicio de Recaptcha","error");
+                            MensajeNotif("Ingrese los datos correctamente","error");
                         } 
                         //presenta mensaje si no existe cliente o anulado
                         if(json == false) {
@@ -222,8 +222,6 @@ function IngresarLogin(){
                         }
                     }
                 };
-                ajax.timeout = 10000;
-                ajax.ontimeout = function () { refresh(); };
                 ajax.send("correo="+btoa(mail.value)+"&clave="+btoa(clave.value)+"&opcion="+op1+"&token="+captcha);
         } else { mail.value = ""; OcultarMsg(); MensajeNotif("Ingrese un correo valido","error"); }
     }
@@ -269,8 +267,6 @@ function actualizarCuentaAtras() {
             } else { MensajeNotif("Por favor  cerrar el navegador por seguridad","error"); }
         }
     };
-    ajax.timeout = 5000;
-    ajax.ontimeout = function () { refresh(); };
     ajax.send("opcion="+op5+"");
   }
 
@@ -532,8 +528,6 @@ function EnviarMailOlvido(){
                     }
                 }
             };
-            ajax.timeout = 10000;
-            ajax.ontimeout = function () { refresh(); };
             ajax.send("correo="+btoa(mail.value)+"&opcion="+op3+"&token="+captcha);
         } else { mail.value = ""; OcultarMsg(); MensajeNotif("Ingrese un correo valido","error"); }
       }
